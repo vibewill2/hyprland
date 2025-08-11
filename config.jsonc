@@ -1,0 +1,48 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 30,
+
+  // Módulos da esquerda, centro e direita
+  "modules-left": ["hyprland/workspaces"],
+  "modules-center": ["clock"],
+  "modules-right": ["pulseaudio", "network", "battery"],
+
+  // Áreas de trabalho
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "1": "", // terminal
+      "2": "", // navegador
+      "3": "", // código
+      "4": "", // arquivos
+      "5": ""  // música
+    },
+    "on-click": "hyprctl dispatch workspace {id}"
+  },
+
+  // Relógio
+  "clock": {
+    "format": "{:%H:%M}",
+    "tooltip-format": "<big>{:%A, %d de %B de %Y}</big>"
+  },
+
+  // Áudio
+  "pulseaudio": {
+    "format": "{volume}% ",
+    "format-muted": "🔇"
+  },
+
+  // Rede
+  "network": {
+    "format-wifi": " {essid}",
+    "format-ethernet": " {ipaddr}",
+    "format-disconnected": ""
+  },
+
+  // Bateria
+  "battery": {
+    "format": "{capacity}% {icon}",
+    "format-icons": ["", "", "", "", ""]
+  }
+}
