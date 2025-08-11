@@ -4,9 +4,19 @@
   "height": 30,
 
   // Módulos da esquerda, centro e direita
-  "modules-left": ["hyprland/workspaces"],
+  "modules-left": ["hyprland/workspaces", "wlr/taskbar"],
   "modules-center": ["clock"],
   "modules-right": ["pulseaudio", "network", "battery"],
+
+  // Configuração do taskbar
+  "wlr/taskbar": {
+    "format": "{icon}",
+    "icon-size": 18,
+    "spacing": 4,
+    "all-outputs": true, // mostra janelas de todos os monitores
+    "on-click": "activate", // ativa a janela ao clicar
+    "on-click-middle": "close" // fecha a janela ao clicar com o botão do meio
+  },
 
   // Áreas de trabalho
   "hyprland/workspaces": {
@@ -21,9 +31,9 @@
     "on-click": "hyprctl dispatch workspace {id}"
   },
 
-  // Relógio
+  // Relógio (com data + hora)
   "clock": {
-    "format": "{:%H:%M}",
+    "format": "{:%d/%m/%Y %H:%M}",
     "tooltip-format": "<big>{:%A, %d de %B de %Y}</big>"
   },
 
