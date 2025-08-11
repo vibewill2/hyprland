@@ -3,56 +3,59 @@
   "position": "top",
   "height": 30,
 
-  // Módulos da esquerda, centro e direita
   "modules-left": ["hyprland/workspaces", "wlr/taskbar"],
   "modules-center": ["clock"],
-  "modules-right": ["pulseaudio", "network", "battery"],
+  "modules-right": ["pulseaudio", "network", "waybar-restart", "battery", "custom/power"],
 
-  // Configuração do taskbar
   "wlr/taskbar": {
     "format": "{icon}",
     "icon-size": 18,
     "spacing": 4,
-    "all-outputs": true, // mostra janelas de todos os monitores
-    "on-click": "activate", // ativa a janela ao clicar
-    "on-click-middle": "close" // fecha a janela ao clicar com o botão do meio
+    "all-outputs": true,
+    "on-click": "activate",
+    "on-click-middle": "close"
   },
 
-  // Áreas de trabalho
   "hyprland/workspaces": {
     "format": "{icon}",
     "format-icons": {
-      "1": "", // terminal
-      "2": "", // navegador
-      "3": "", // código
-      "4": "", // arquivos
-      "5": ""  // música
+      "1": "",
+      "2": "",
+      "3": "",
+      "4": "",
+      "5": ""
     },
     "on-click": "hyprctl dispatch workspace {id}"
   },
 
-  // Relógio (com data + hora)
   "clock": {
     "format": "{:%d/%m/%Y %H:%M}",
     "tooltip-format": "<big>{:%A, %d de %B de %Y}</big>"
   },
 
-  // Áudio
   "pulseaudio": {
     "format": "{volume}% ",
     "format-muted": "🔇"
   },
 
-  // Rede
   "network": {
     "format-wifi": " {essid}",
     "format-ethernet": " {ipaddr}",
     "format-disconnected": ""
   },
 
-  // Bateria
   "battery": {
     "format": "{capacity}% {icon}",
     "format-icons": ["", "", "", "", ""]
+  },
+
+  "custom/power": {
+    "format": "",
+    "on-click": "systemctl poweroff"
+  },
+
+  "waybar-restart": {
+    "format": "",
+    "on-click": "killall waybar && waybar &"
   }
 }
