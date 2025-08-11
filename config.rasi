@@ -1,0 +1,90 @@
+
+@theme "/usr/share/rofi/themes/arthur.rasi"
+/* Estilo para combinar com o tema Flight-DarK-GTK */
+
+configuration {
+  modi: "drun,run,window";
+  font: "Cantarell 12"; /* Use a fonte do seu tema, se souber */
+  show-icons: true;
+}
+
+/* Variáveis de cor para facilitar a personalização */
+* {
+  bg: #2d3032;            /* Fundo escuro */
+  bg-transparent: rgba(45, 48, 50, 0.9); /* Fundo com 90% de opacidade */
+  fg: #fcfcfc;            /* Texto claro */
+  selected-bg: #4f5357;   /* Fundo do item selecionado (um cinza um pouco mais claro) */
+  selected-fg: #fcfcfc;   /* Texto do item selecionado */
+  highlight-bg: #7abaff;  /* Cor de destaque, como o azul do tema */
+}
+
+window {
+  border: 0;
+  border-radius: 8px;
+  padding: 15px;
+  background-color: @bg-transparent;
+  text-color: @fg;
+  width: 30%; /* Ajuste a largura da janela conforme sua preferência */
+}
+
+mainbox {
+  border: 0;
+  padding: 0;
+}
+
+inputbar {
+  children: [ prompt, entry ];
+  background-color: transparent;
+  padding: 10px;
+  border: 0;
+  margin: 0;
+}
+
+prompt {
+  background-color: transparent;
+  enabled: false; /* Você pode desativar o prompt se preferir um visual mais limpo */
+}
+
+textbox-prompt-colon {
+  expand: false;
+  str: "";
+  text-color: @highlight-bg;
+}
+
+entry {
+  background-color: transparent;
+  text-color: @fg;
+  placeholder: "Pesquisar...";
+  placeholder-color: rgba(252, 252, 252, 0.5); /* Cor mais clara para o placeholder */
+}
+
+listview {
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+  margin: 0 10px 0 10px;
+}
+
+element {
+  padding: 8px 10px;
+  border-radius: 6px;
+  background-color: transparent;
+  text-color: @fg;
+}
+
+element selected {
+  background-color: @selected-bg;
+  text-color: @selected-fg;
+}
+
+element-text {
+  background-color: transparent;
+  text-color: inherit;
+  margin: 0 0 0 10px;
+}
+
+element-icon {
+  size: 1.5em;
+  background-color: transparent;
+  text-color: inherit;
+}
