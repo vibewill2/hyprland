@@ -7,6 +7,8 @@ window#waybar {
   background: rgba(20, 20, 20, 0.85);
   color: #ffffff;
   border-bottom: 2px solid #4cafef;
+  border-radius: 12px; /* Borda arredondada */
+  margin: 5px; /* Espaço para não colar na tela */
 }
 
 #workspaces button {
@@ -30,4 +32,6 @@ window#waybar {
 
 #clock, #pulseaudio, #network, #battery {
   padding: 0 10px;
+  border-radius: 8px; /* Arredonda módulos */
 }
+
