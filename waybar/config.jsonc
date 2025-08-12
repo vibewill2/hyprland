@@ -1,0 +1,61 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 30,
+
+  "modules-left": ["hyprland/workspaces", "wlr/taskbar"],
+  "modules-center": ["clock"],
+  "modules-right": ["pulseaudio", "network", "waybar-restart", "battery", "custom/power"],
+
+  "wlr/taskbar": {
+    "format": "{icon}",
+    "icon-size": 18,
+    "spacing": 4,
+    "all-outputs": true,
+    "on-click": "activate",
+    "on-click-middle": "close"
+  },
+
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "1": "",
+      "2": "",
+      "3": "",
+      "4": "",
+      "5": ""
+    },
+    "on-click": "hyprctl dispatch workspace {id}"
+  },
+
+  "clock": {
+    "format": "{:%d/%m/%Y %H:%M}",
+    "tooltip-format": "<big>{:%A, %d de %B de %Y}</big>"
+  },
+
+  "pulseaudio": {
+    "format": "{volume}% ",
+    "format-muted": "🔇"
+  },
+
+  "network": {
+    "format-wifi": " {essid}",
+    "format-ethernet": " {ipaddr}",
+    "format-disconnected": ""
+  },
+
+  "battery": {
+    "format": "{capacity}% {icon}",
+    "format-icons": ["", "", "", "", ""]
+  },
+
+  "custom/power": {
+    "format": "",
+    "on-click": "systemctl poweroff"
+  },
+
+  "waybar-restart": {
+    "format": "",
+    "on-click": "killall waybar && waybar &"
+  }
+}
