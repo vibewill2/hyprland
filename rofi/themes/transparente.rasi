@@ -1,0 +1,9 @@
+* {
+    background:      rgba(0, 0, 0, 0.5);   /* fundo com 50% de opacidade */
+    background-alt:  rgba(0, 0, 0, 0.3);   /* fundo alternativo */
+    foreground:      #ffffff;
+    selected:        rgba(76, 175, 239, 0.8); /* seleção com cor e transparência */
+    border:          rgba(76, 175, 239, 0.8);
+    border-radius:   12px;                  /* cantos arredondados */
+    padding:         10px;
+}
