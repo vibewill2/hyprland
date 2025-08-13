@@ -1,7 +1,7 @@
 {
   "layer": "top",
   "position": "top",
-  "height": 30,
+  "height": 32,
 
   "modules-left": ["hyprland/workspaces", "hyprland/window", "wlr/taskbar"],
   "modules-center": ["clock"],
@@ -10,7 +10,7 @@
     "network",
     "cpu",
     "memory",
-    "waybar-restart",
+    "custom/waybar-restart",
     "battery",
     "custom/power"
   ],
@@ -33,7 +33,15 @@
       "4": "",
       "5": ""
     },
-    "on-click": "hyprctl dispatch workspace {id}"
+    "on-click": "hyprctl dispatch workspace {id}",
+    "all-outputs": true,
+    "swap-icon-label": true,
+    "persistent_workspaces": {
+      "*": [1, 2, 3, 4, 5]
+    },
+    "disable-scroll": false,
+    "sort-by-number": true,
+    "show-empty": true   // ⚡ força a exibição de workspaces mesmo vazios
   },
 
   "hyprland/window": {
@@ -76,7 +84,7 @@
     "on-click": "systemctl poweroff"
   },
 
-  "waybar-restart": {
+  "custom/waybar-restart": {
     "format": "",
     "on-click": "killall waybar && waybar &"
   }
