@@ -5,7 +5,15 @@
 
   "modules-left": ["hyprland/workspaces", "wlr/taskbar"],
   "modules-center": ["clock"],
-  "modules-right": ["pulseaudio", "network", "waybar-restart", "battery", "custom/power"],
+  "modules-right": [
+    "pulseaudio",
+    "network",
+    "cpu",
+    "memory",
+    "waybar-restart",
+    "battery",
+    "custom/power"
+  ],
 
   "wlr/taskbar": {
     "format": "{icon}",
@@ -42,6 +50,16 @@
     "format-wifi": " {essid}",
     "format-ethernet": " {ipaddr}",
     "format-disconnected": ""
+  },
+
+  "cpu": {
+    "format": " {usage}%",
+    "tooltip": true
+  },
+
+  "memory": {
+    "format": " {percentage}%",
+    "tooltip": true
   },
 
   "battery": {
