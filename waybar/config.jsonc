@@ -3,7 +3,7 @@
   "position": "top",
   "height": 30,
 
-  "modules-left": ["hyprland/workspaces", "wlr/taskbar"],
+  "modules-left": ["hyprland/workspaces", "hyprland/window", "wlr/taskbar"],
   "modules-center": ["clock"],
   "modules-right": [
     "pulseaudio",
@@ -34,6 +34,10 @@
       "5": ""
     },
     "on-click": "hyprctl dispatch workspace {id}"
+  },
+
+  "hyprland/window": {
+    "format": "  {title}"
   },
 
   "clock": {
