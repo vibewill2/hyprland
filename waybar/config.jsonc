@@ -7,6 +7,7 @@
   "modules-center": ["clock"],
   "modules-right": [
     "pulseaudio",
+    "custom/mic",
     "network",
     "cpu",
     "memory",
@@ -56,6 +57,15 @@
 
   "pulseaudio": {
     "format": "{volume}% "
+  },
+
+  "custom/mic": {
+    "exec": "~/.config/waybar/mic-volume.sh",
+    "interval": 1,
+    "tooltip": "Microfone",
+    "on-click": "pactl set-source-volume @DEFAULT_SOURCE@ +5%",
+    "on-click-middle": "pactl set-source-volume @DEFAULT_SOURCE@ 0%",
+    "on-click-right": "pactl set-source-volume @DEFAULT_SOURCE@ -5%"
   },
 
   "network": {
