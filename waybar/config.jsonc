@@ -8,12 +8,17 @@
   "modules-right": [
     "pulseaudio",
     "custom/mic",
+    "custom/espaco",
     "network",
+    "custom/espaco",
     "cpu",
+    "custom/espaco",
     "memory",
+    "custom/espaco",
     "custom/waybar-restart",
     "custom/espaco",
     "battery",
+    "custom/espaco",
     "custom/power"
   ],
 
@@ -34,6 +39,20 @@
       "3": "",
       "4": "",
       "5": ""
+    },
+    "format-icons-active": {
+      "1": "",
+      "2": "",
+      "3": "",
+      "4": "",
+      "5": ""
+    },
+    "format-icons-inactive": {
+      "1": "<span color='#ff5555'></span>",
+      "2": "<span color='#50fa7b'></span>",
+      "3": "<span color='#f1fa8c'></span>",
+      "4": "<span color='#bd93f9'></span>",
+      "5": "<span color='#ff79c6'></span>"
     },
     "on-click": "hyprctl dispatch workspace {id}",
     "all-outputs": true,
@@ -93,14 +112,8 @@
     "format": " "
   },
 
-  "battery": {
-    "format": "{capacity}% {icon}",
-    "format-icons": ["", "", "", "", ""]
-  },
-
   "custom/power": {
     "format": "",
-    "on-click": "systemctl poweroff"
+    "on-click": "wlogout -p layer-shell"
   }
 }
-
