@@ -7,12 +7,12 @@
 /* --- Waybar Window --- */
 window#waybar {
   background: rgba(30, 30, 45, 0.95); /* Fundo mais escuro e sutil */
-  color: #c9c9c9; /* Cor do texto principal */
-  border: 1px solid #5a5a73; /* Borda mais fina e discreta */
+  color: #c9c9c9;                     /* Cor do texto principal */
+  border: 1px solid #5a5a73;          /* Borda mais fina e discreta */
   border-radius: 12px;
-  margin: 6px 10px; /* Margem ajustada para um visual mais limpo */
+  margin: 6px 10px;                    /* Margem ajustada para um visual mais limpo */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Sombra para profundidade */
-  transition: all 0.3s ease; /* Transição suave para efeitos */
+  transition: all 0.3s ease;           /* Transição suave para efeitos */
 }
 
 /* --- Workspaces Module --- */
@@ -35,7 +35,30 @@ window#waybar {
 }
 
 #workspaces button.active {
-  background: #5a5a73; /* Cor de fundo para a workspace ativa */
-  color: #c9c9c9; /* Cor do texto para a workspace ativa */
-  border-bottom: 2px solid #a3be8c; /* Adiciona uma linha embaixo para destacar */
+  background: #5a5a73;          /* Cor de fundo para a workspace ativa */
+  color: #c9c9c9;               /* Cor do texto para a workspace ativa */
+  border-bottom: 2px solid #a3be8c; /* Linha embaixo para destacar */
 }
+
+/* --- CAVA Visualizers --- */
+.custom .synth1 {
+  font-family: "JetBrainsMono Nerd Font";
+  font-size: 12px;               /* ligeiramente menor pra caber bem */
+  color: #4cafef;                /* Azul vibrante */
+  padding: 0 6px;
+}
+
+.custom .synth2 {
+  font-family: "JetBrainsMono Nerd Font";
+  font-size: 12px;
+  color: #ffb74d;                /* Laranja suave */
+  padding: 0 6px;
+}
+
+.custom .synth3 {
+  font-family: "JetBrainsMono Nerd Font";
+  font-size: 12px;
+  color: #e57373;                /* Rosa/avermelhado */
+  padding: 0 6px;
+}
+

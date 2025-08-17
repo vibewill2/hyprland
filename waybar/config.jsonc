@@ -4,7 +4,7 @@
   "height": 32,
 
   "modules-left": ["hyprland/workspaces", "hyprland/window", "wlr/taskbar"],
-  "modules-center": ["clock"],
+  "modules-center": ["clock", "custom/synth1", "custom/synth2", "custom/synth3"],
   "modules-right": [
     "pulseaudio",
     "custom/mic",
@@ -66,6 +66,27 @@
     "on-click": "pactl set-source-volume @DEFAULT_SOURCE@ +5%",
     "on-click-middle": "pactl set-source-volume @DEFAULT_SOURCE@ 0%",
     "on-click-right": "pactl set-source-volume @DEFAULT_SOURCE@ -5%"
+  },
+
+  "custom/synth1": {
+    "exec": "~/.config/waybar/scripts/cava-multi.sh",
+    "return-type": "json",
+    "tail": true,
+    "tooltip": false
+  },
+
+  "custom/synth2": {
+    "exec": "~/.config/waybar/scripts/cava-multi.sh",
+    "return-type": "json",
+    "tail": true,
+    "tooltip": false
+  },
+
+  "custom/synth3": {
+    "exec": "~/.config/waybar/scripts/cava-multi.sh",
+    "return-type": "json",
+    "tail": true,
+    "tooltip": false
   },
 
   "network": {
