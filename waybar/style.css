@@ -1,37 +1,41 @@
+/* --- Global Style --- */
 * {
   font-family: "JetBrainsMono Nerd Font", monospace;
   font-size: 13px;
 }
 
+/* --- Waybar Window --- */
 window#waybar {
-  background: rgba(20, 20, 20, 0.85);
-  color: #ffffff;
-  border-bottom: 2px solid #4cafef;
-  border-radius: 12px; /* Borda arredondada */
-  margin: 5px; /* Espaço para não colar na tela */
+  background: rgba(30, 30, 45, 0.95); /* Fundo mais escuro e sutil */
+  color: #c9c9c9; /* Cor do texto principal */
+  border: 1px solid #5a5a73; /* Borda mais fina e discreta */
+  border-radius: 12px;
+  margin: 6px 10px; /* Margem ajustada para um visual mais limpo */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Sombra para profundidade */
+  transition: all 0.3s ease; /* Transição suave para efeitos */
+}
+
+/* --- Workspaces Module --- */
+#workspaces {
+  margin: 0 5px;
 }
 
 #workspaces button {
-  padding: 0 8px;
-  margin: 0 3px;
-  border-radius: 6px;
+  padding: 0 10px;
+  margin: 0 4px;
+  border-radius: 8px;
   background: transparent;
-  color: #bbb;
+  color: #8f8f8f; /* Cor dos ícones/textos inativos */
+  transition: all 0.2s ease-in-out;
+}
+
+#workspaces button:hover {
+  background: rgba(90, 90, 115, 0.5); /* Fundo sutil ao passar o mouse */
+  color: #e0e0e0;
 }
 
 #workspaces button.active {
-  background: #4cafef;
-  color: black;
-  font-weight: bold;
+  background: #5a5a73; /* Cor de fundo para a workspace ativa */
+  color: #c9c9c9; /* Cor do texto para a workspace ativa */
+  border-bottom: 2px solid #a3be8c; /* Adiciona uma linha embaixo para destacar */
 }
-
-#workspaces button.urgent {
-  background: #ff4f4f;
-  color: white;
-}
-
-#clock, #pulseaudio, #network, #battery {
-  padding: 0 10px;
-  border-radius: 8px; /* Arredonda módulos */
-}
-
