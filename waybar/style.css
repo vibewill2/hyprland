@@ -10,9 +10,9 @@ window#waybar {
   color: #c9c9c9;                     /* Cor do texto principal */
   border: 1px solid #5a5a73;          /* Borda mais fina e discreta */
   border-radius: 12px;
-  margin: 6px 10px;                    /* Margem ajustada para um visual mais limpo */
+  margin: 6px 50px;                   /* ↑↑ margem lateral aumentada (mais afastado da tela) */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Sombra para profundidade */
-  transition: all 0.3s ease;           /* Transição suave para efeitos */
+  transition: all 0.3s ease;          /* Transição suave para efeitos */
 }
 
 /* --- Workspaces Module --- */
@@ -58,7 +58,4 @@ window#waybar {
 .custom .synth3 {
   font-family: "JetBrainsMono Nerd Font";
   font-size: 12px;
-  color: #e57373;                /* Rosa/avermelhado */
-  padding: 0 6px;
 }
-
