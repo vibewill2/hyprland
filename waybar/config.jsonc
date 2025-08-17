@@ -4,7 +4,7 @@
   "height": 32,
 
   "modules-left": ["hyprland/workspaces", "hyprland/window", "wlr/taskbar"],
-  "modules-center": ["clock", "custom/synth1", "custom/synth2", "custom/synth3"],
+  "modules-center": ["clock", "custom/synth"],
   "modules-right": [
     "pulseaudio",
     "custom/mic",
@@ -61,32 +61,11 @@
 
   "custom/mic": {
     "exec": "~/.config/waybar/mic-volume.sh",
-    "interval": 1,
+    "interval": 5,
     "tooltip": "Microfone",
     "on-click": "pactl set-source-volume @DEFAULT_SOURCE@ +5%",
     "on-click-middle": "pactl set-source-volume @DEFAULT_SOURCE@ 0%",
     "on-click-right": "pactl set-source-volume @DEFAULT_SOURCE@ -5%"
-  },
-
-  "custom/synth1": {
-    "exec": "~/.config/waybar/scripts/cava-multi.sh",
-    "return-type": "json",
-    "tail": true,
-    "tooltip": false
-  },
-
-  "custom/synth2": {
-    "exec": "~/.config/waybar/scripts/cava-multi.sh",
-    "return-type": "json",
-    "tail": true,
-    "tooltip": false
-  },
-
-  "custom/synth3": {
-    "exec": "~/.config/waybar/scripts/cava-multi.sh",
-    "return-type": "json",
-    "tail": true,
-    "tooltip": false
   },
 
   "network": {
@@ -97,12 +76,12 @@
 
   "cpu": {
     "format": " {usage}%",
-    "tooltip": true
+    "tooltip": false
   },
 
   "memory": {
     "format": " {percentage}%",
-    "tooltip": true
+    "tooltip": false
   },
 
   "custom/waybar-restart": {
@@ -124,3 +103,4 @@
     "on-click": "systemctl poweroff"
   }
 }
+
