@@ -9,18 +9,13 @@ if [ ! -d "$WALLPAPERS_DIR" ]; then
     exit 1
 fi
 
-# Escolhe uma imagem aleatória
-IMG=$(find "$WALLPAPERS_DIR" -type f | shuf -n 1)
+# Abre uma janela gráfica para escolher imagem
+IMG=$(zenity --file-selection \
+    --title="Escolha um Papel de Parede" \
+    --filename="$WALLPAPERS_DIR/" \
+    --file-filter="Imagens | *.png *.jpg *.jpeg *.bmp *.webp")
 
-# Mostra a imagem em uma caixinha de confirmação
-if yad --title="Definir Papel de Parede?" \
-       --image="$IMG" \
-       --button=Sim:0 \
-       --button=Não:1 \
-       --center \
-       --width=400 \
-       --height=400 \
-       --text="Deseja definir esta imagem como papel de parede?"; then
-    # Se clicar em Sim, aplica a imagem
+# Se o usuário escolheu, aplica no swww
+if [ -n "$IMG" ]; then
     swww img "$IMG"
 fi
