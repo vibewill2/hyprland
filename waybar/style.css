@@ -1,40 +1,84 @@
-/* --- Workspaces Module --- */
-#workspaces {
-  margin: 0 5px;
-}
-
-/* Botões dos workspaces */
+/* --- Workspaces --- */
 #workspaces button {
-  padding: 0 10px;
-  margin: 0 4px;
-  border-radius: 50%;        /* círculo */
-  background: transparent;
-  color: #8f8f8f;            /* ícones/textos inativos */
-  transition: all 0.2s ease-in-out;
+    padding: 0 10px;
+    margin: 0 4px;
+    border-radius: 50%;
+    transition: all 0.2s ease-in-out;
+    color: #d8dee9;       /* inativo */
+    background: #4c566a;
 }
 
-/* Hover */
 #workspaces button:hover {
-  background: rgba(90, 90, 115, 0.5);
-  color: #e0e0e0;
+    background: #5e81ac;
+    color: #eceff4;
 }
 
-/* Workspace ativa - círculo preenchido */
 #workspaces button.active {
-  background-color: #a3be8c; /* círculo do workspace ativo */
-  color: #2e3440;            /* cor do número dentro do círculo */
+    background: #88c0d0;  /* azul */
+    color: #2e3440;
 }
 
-/* Workspace ocupada mas não ativa */
 #workspaces button.occupied {
-  background: rgba(90, 90, 115, 0.7);
-  color: #c9c9c9;
-  border-bottom: 2px solid #81a1c1; /* destaque sutil */
+    background: #ebcb8b;  /* amarelo */
+    color: #2e3440;
 }
 
-/* Workspace urgente (janela precisa de atenção) */
 #workspaces button.urgent {
-  background: #bf616a;      /* vermelho suave */
-  color: #ffffff;
-  border-bottom: 2px solid #d08770;
+    background: #bf616a;  /* vermelho */
+    color: #ffffff;
+}
+
+/* --- Window Title --- */
+#hyprland-window {
+    color: #81a1c1;  /* azul suave */
+}
+
+/* --- Clock --- */
+#clock {
+    color: #a3be8c;  /* verde */
+}
+
+/* --- Pulseaudio --- */
+#pulseaudio {
+    color: #d08770;  /* laranja */
+}
+
+/* --- Microfone --- */
+#custom-mic {
+    color: #b48ead;  /* roxo */
+}
+
+/* --- Network --- */
+#network {
+    color: #ebcb8b;  /* amarelo */
+}
+
+/* --- CPU --- */
+#cpu {
+    color: #bf616a;  /* vermelho */
+}
+
+/* --- Memory --- */
+#memory {
+    color: #88c0d0;  /* azul */
+}
+
+/* --- Restart Waybar --- */
+#custom-waybar-restart {
+    color: #81a1c1;  /* azul */
+}
+
+/* --- Power --- */
+#custom-power {
+    color: #a3be8c;  /* verde */
+}
+
+/* --- Reboot --- */
+#custom-reboot {
+    color: #d08770;  /* laranja */
+}
+
+/* --- Espaço --- */
+#custom-espaco {
+    color: transparent;
 }
