@@ -1,7 +1,7 @@
 {
   "layer": "top",
   "position": "top",
-  "height": 32,
+  "height": 24,  // diminuiu de 32 para 24
 
   "modules-left": ["hyprland/workspaces", "hyprland/window", "wlr/taskbar"],
   "modules-center": ["clock", "custom/synth"],
@@ -24,8 +24,8 @@
 
   "wlr/taskbar": {
     "format": "{icon}",
-    "icon-size": 18,
-    "spacing": 4,
+    "icon-size": 14,  // diminuiu de 18 para 14
+    "spacing": 2,     // diminuiu de 4 para 2
     "all-outputs": true,
     "on-click": "activate",
     "on-click-middle": "close"
