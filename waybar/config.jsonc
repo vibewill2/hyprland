@@ -1,7 +1,7 @@
 {
   "layer": "top",
   "position": "top",
-  "height": 24,  // diminuiu de 32 para 24
+  "height": 32,
 
   "modules-left": ["hyprland/workspaces", "hyprland/window", "wlr/taskbar"],
   "modules-center": ["clock", "custom/synth"],
@@ -19,13 +19,14 @@
     "custom/espaco",
     "battery",
     "custom/espaco",
-    "custom/power"
+    "custom/power",
+    "custom/reboot"
   ],
 
   "wlr/taskbar": {
     "format": "{icon}",
-    "icon-size": 14,  // diminuiu de 18 para 14
-    "spacing": 2,     // diminuiu de 4 para 2
+    "icon-size": 18,
+    "spacing": 4,
     "all-outputs": true,
     "on-click": "activate",
     "on-click-middle": "close"
@@ -86,13 +87,18 @@
     "format": "",
     "on-click": "killall waybar && waybar &"
   },
-  
+
   "custom/espaco": {
     "format": " "
   },
 
   "custom/power": {
     "format": "",
-    "on-click": "wlogout -p layer-shell"
+    "on-click": "systemctl poweroff"
+  },
+
+  "custom/reboot": {
+    "format": "",
+    "on-click": "systemctl reboot"
   }
 }
