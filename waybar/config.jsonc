@@ -32,31 +32,10 @@
   },
 
   "hyprland/workspaces": {
-    "format": "{icon}",
-    "format-icons": {
-      "1": "",
-      "2": "",
-      "3": "",
-      "4": "",
-      "5": ""
-    },
-    "format-icons-active": {
-      "1": "",
-      "2": "",
-      "3": "",
-      "4": "",
-      "5": ""
-    },
-    "format-icons-inactive": {
-      "1": "<span color='#ff5555'></span>",
-      "2": "<span color='#50fa7b'></span>",
-      "3": "<span color='#f1fa8c'></span>",
-      "4": "<span color='#bd93f9'></span>",
-      "5": "<span color='#ff79c6'></span>"
-    },
+    "format": "{id}", 
     "on-click": "hyprctl dispatch workspace {id}",
     "all-outputs": true,
-    "swap-icon-label": true,
+    "swap-icon-label": false,
     "persistent_workspaces": {
       "*": [1, 2, 3, 4, 5]
     },
