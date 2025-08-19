@@ -28,57 +28,23 @@
     color: #ffffff;
 }
 
-/* --- Window Title --- */
-#hyprland-window {
-    color: #81a1c1;  /* azul suave */
-}
-
-/* --- Clock --- */
-#clock {
-    color: #a3be8c;  /* verde */
-}
-
-/* --- Pulseaudio --- */
-#pulseaudio {
-    color: #d08770;  /* laranja */
-}
-
-/* --- Microfone --- */
-#custom-mic {
-    color: #b48ead;  /* roxo */
-}
-
-/* --- Network --- */
-#network {
-    color: #ebcb8b;  /* amarelo */
-}
-
-/* --- CPU --- */
-#cpu {
-    color: #bf616a;  /* vermelho */
-}
-
-/* --- Memory --- */
-#memory {
-    color: #88c0d0;  /* azul */
-}
-
-/* --- Restart Waybar --- */
-#custom-waybar-restart {
-    color: #81a1c1;  /* azul */
-}
-
-/* --- Power --- */
-#custom-power {
-    color: #a3be8c;  /* verde */
-}
-
-/* --- Reboot --- */
-#custom-reboot {
-    color: #d08770;  /* laranja */
-}
-
-/* --- Espaço --- */
+/* --- Módulos arredondados --- */
+#hyprland-window,
+#clock,
+#pulseaudio,
+#custom-mic,
+#network,
+#cpu,
+#memory,
+#custom-waybar-restart,
+#custom-power,
+#custom-reboot,
 #custom-espaco {
-    color: transparent;
+    padding: 0 10px;
+    margin: 0 4px;
+    border-radius: 50%;          /* arredondado igual aos workspaces */
+    background: #4c566a;         /* mesma cor do workspace inativo */
+    color: #d8dee9;              /* mesma cor do workspace inativo */
+    transition: all 0.2s ease-in-out;
 }
+
