@@ -3,7 +3,7 @@
   "position": "top",
   "height": 32,
 
-  "modules-left": ["hyprland/workspaces", "hyprland/window", "wlr/taskbar"],
+  "modules-left": ["hyprland/workspaces", "hyprland/window", "tray"],
   "modules-center": ["clock", "custom/synth"],
   "modules-right": [
     "pulseaudio",
@@ -23,13 +23,11 @@
     "custom/reboot"
   ],
 
-  "wlr/taskbar": {
-    "format": "{icon}",
+  "tray": {
     "icon-size": 18,
     "spacing": 4,
     "all-outputs": true,
-    "on-click": "activate",
-    "on-click-middle": "close"
+    "only-tray": true
   },
 
   "hyprland/workspaces": {
