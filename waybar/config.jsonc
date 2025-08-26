@@ -2,9 +2,11 @@
   "layer": "top",
   "position": "top",
   "height": 32,
+  "margin-left": 10,
+  "margin-right": 10,
 
   "modules-left": ["hyprland/workspaces", "hyprland/window", "tray"],
-  "modules-center": ["clock", "custom/synth"],
+  "modules-center": ["clock"],
   "modules-right": [
     "pulseaudio",
     "custom/mic",
@@ -31,7 +33,7 @@
   },
 
   "hyprland/workspaces": {
-    "format": "{id}", 
+    "format": "{id}",
     "on-click": "hyprctl dispatch workspace {id}",
     "all-outputs": true,
     "swap-icon-label": false,
