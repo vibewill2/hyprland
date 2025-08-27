@@ -97,6 +97,9 @@ nnoremap <leader>p :w<CR>:Dispatch g++ % -o %:r && ./%:r<CR>
 " Atalho para rodar Python
 nnoremap <leader>o :w<CR>:!python3 %<CR>
 
+" Atalho para rodar Ruby
+nnoremap <leader>i :w<CR>:!ruby %<CR>
+
 " -----------------------------
 " === Plugins (vim-plug) ===
 " -----------------------------
