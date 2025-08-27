@@ -5,7 +5,7 @@
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
 
-    background: rgba(46, 52, 64, 0.3); /* fundo translúcido */
+    background: transparent; /* Transparência total */
 }
 
 /* --- Workspaces --- */
@@ -15,26 +15,26 @@
     border-radius: 50%;
     transition: all 0.2s ease-in-out;
     color: #d8dee9; /* inativo */
-    background: #4c566a; /* sólido */
+    background: rgba(76, 86, 106, 0.6); /* translúcido */
 }
 
 #workspaces button:hover {
-    background: #5e81ac;
+    background: rgba(94, 129, 172, 0.7);
     color: #eceff4;
 }
 
 #workspaces button.active {
-    background: #88c0d0; /* azul */
+    background: rgba(136, 192, 208, 0.8); /* azul translúcido */
     color: #2e3440;
 }
 
 #workspaces button.occupied {
-    background: #ebcb8b; /* amarelo */
+    background: rgba(235, 203, 139, 0.8); /* amarelo translúcido */
     color: #2e3440;
 }
 
 #workspaces button.urgent {
-    background: #bf616a; /* vermelho */
+    background: rgba(191, 97, 106, 0.9); /* vermelho translúcido */
     color: #ffffff;
 }
 
@@ -53,7 +53,21 @@
     padding: 0 10px;
     margin: 0 4px;
     border-radius: 50%; 
-    background: #4c566a; /* sólido */
+    background: rgba(76, 86, 106, 0.6); /* translúcido */
     color: #d8dee9; 
     transition: all 0.2s ease-in-out;
+}
+
+#hyprland-window:hover,
+#clock:hover,
+#pulseaudio:hover,
+#custom-mic:hover,
+#network:hover,
+#cpu:hover,
+#memory:hover,
+#custom-waybar-restart:hover,
+#custom-power:hover,
+#custom-reboot:hover,
+#custom-espaco:hover {
+    background: rgba(94, 129, 172, 0.7); /* efeito hover translúcido */
 }
