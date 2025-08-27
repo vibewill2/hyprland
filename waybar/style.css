@@ -13,26 +13,32 @@
     padding: 0 10px;
     margin: 0 4px;
     border-radius: 50%;
-    transition: all 0.2s ease-in-out;
+    transition: background 0.3s ease, color 0.3s ease; /* transição suave de cores */
     color: #d8dee9; /* inativo */
     background: #4c566a; /* cor sólida */
 }
 
+/* efeito hover */
 #workspaces button:hover {
     background: #5e81ac;
     color: #eceff4;
 }
 
+/* workspace ativa */
 #workspaces button.active {
     background: #88c0d0; /* azul sólido */
     color: #2e3440;
+    /* efeito pulse compatível: usando box-shadow e opacidade */
+    box-shadow: 0 0 8px rgba(136, 192, 208, 0.7);
 }
 
+/* workspace ocupada */
 #workspaces button.occupied {
     background: #ebcb8b; /* amarelo sólido */
     color: #2e3440;
 }
 
+/* workspace urgente */
 #workspaces button.urgent {
     background: #bf616a; /* vermelho sólido */
     color: #ffffff;
@@ -55,9 +61,10 @@
     border-radius: 50%; 
     background: #4c566a; /* cor sólida */
     color: #d8dee9; 
-    transition: all 0.2s ease-in-out;
+    transition: background 0.3s ease, color 0.3s ease; /* transição suave de cores */
 }
 
+/* efeito hover nos módulos */
 #hyprland-window:hover,
 #clock:hover,
 #pulseaudio:hover,
