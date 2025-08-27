@@ -5,7 +5,7 @@
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
 
-    background: transparent; /* Transparência total */
+    background: rgba(46, 52, 64, 0); /* Transparência total */
 }
 
 /* --- Workspaces --- */
@@ -15,26 +15,26 @@
     border-radius: 50%;
     transition: all 0.2s ease-in-out;
     color: #d8dee9; /* inativo */
-    background: rgba(76, 86, 106, 0.6); /* translúcido */
+    background: #4c566a; /* cor sólida */
 }
 
 #workspaces button:hover {
-    background: rgba(94, 129, 172, 0.7);
+    background: #5e81ac;
     color: #eceff4;
 }
 
 #workspaces button.active {
-    background: rgba(136, 192, 208, 0.8); /* azul translúcido */
+    background: #88c0d0; /* azul sólido */
     color: #2e3440;
 }
 
 #workspaces button.occupied {
-    background: rgba(235, 203, 139, 0.8); /* amarelo translúcido */
+    background: #ebcb8b; /* amarelo sólido */
     color: #2e3440;
 }
 
 #workspaces button.urgent {
-    background: rgba(191, 97, 106, 0.9); /* vermelho translúcido */
+    background: #bf616a; /* vermelho sólido */
     color: #ffffff;
 }
 
@@ -53,7 +53,7 @@
     padding: 0 10px;
     margin: 0 4px;
     border-radius: 50%; 
-    background: rgba(76, 86, 106, 0.6); /* translúcido */
+    background: #4c566a; /* cor sólida */
     color: #d8dee9; 
     transition: all 0.2s ease-in-out;
 }
@@ -69,5 +69,5 @@
 #custom-power:hover,
 #custom-reboot:hover,
 #custom-espaco:hover {
-    background: rgba(94, 129, 172, 0.7); /* efeito hover translúcido */
+    background: #5e81ac; /* efeito hover sólido */
 }
