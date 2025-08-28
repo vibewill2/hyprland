@@ -41,7 +41,7 @@
     background: rgba(0, 0, 0, 0.2);
 }
 
-/* módulos arredondados */
+/* --- Módulos arredondados --- */
 #hyprland-window,
 #clock,
 #pulseaudio,
@@ -51,7 +51,9 @@
 #memory,
 #custom-waybar-restart,
 #custom-power,
-#custom-reboot {
+#custom-reboot,
+#custom-color-toggle, /* adicionado */
+#custom-brush {       /* módulo pincel adicionado */
     padding: 0 10px;
     margin: 0 4px;
     border-radius: 15px;
@@ -70,7 +72,9 @@
 #memory:hover,
 #custom-waybar-restart:hover,
 #custom-power:hover,
-#custom-reboot:hover {
+#custom-reboot:hover,
+#custom-color-toggle:hover, /* adicionado */
+#custom-brush:hover {       /* módulo pincel adicionado */
     background: rgba(0, 0, 0, 0.2);
     border-radius: 15px;
 }
