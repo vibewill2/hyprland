@@ -1,47 +1,47 @@
-/* --- Barra principal --- */
 #waybar {
     border-radius: 15px;
-    background: rgba(0, 0, 0, 0.2); /* leve transparência da barra */
-    border-bottom: 2px solid #0077ff; /* borda azul na parte inferior */
+    background: rgba(0, 0, 255, 0.2); /* cor inicial */
+    border-bottom: 2px solid #0077ff;
     padding: 5px;
+    transition: background 0.3s ease; /* transição suave */
 }
 
 /* --- Workspaces --- */
 #workspaces button {
     padding: 0 10px;
     margin: 0 4px;
-    border-radius: 15px; /* arredondamento individual */
-    color: #ffffff; /* texto branco */
-    background: rgba(0, 0, 0, 0.6); /* menos transparente */
+    border-radius: 15px;
+    color: #ffffff;
+    background: rgba(0, 0, 255, 0.2);
     border: none;
     transition: background 0.3s ease, color 0.3s ease, opacity 0.3s ease;
     opacity: 0.9;
 }
 
-/* efeito hover */
+/* hover */
 #workspaces button:hover {
-    background: rgba(0, 0, 0, 0.75); /* hover mais visível */
+    background: rgba(0, 0, 255, 0.2);
     opacity: 1;
 }
 
 /* workspace ativa */
 #workspaces button.active {
-    background: rgba(0, 119, 255, 0.8); /* azul mais sólido */
+    background: rgba(0, 0, 255, 0.2);
     box-shadow: 0 0 8px rgba(0, 119, 255, 0.9);
     opacity: 1;
 }
 
 /* workspace ocupada */
 #workspaces button.occupied {
-    background: rgba(0, 0, 0, 0.65);
+    background: rgba(0, 0, 255, 0.2);
 }
 
 /* workspace urgente */
 #workspaces button.urgent {
-    background: rgba(191, 97, 106, 0.8);
+    background: rgba(0, 0, 255, 0.2);
 }
 
-/* --- Módulos arredondados --- */
+/* módulos arredondados */
 #hyprland-window,
 #clock,
 #pulseaudio,
@@ -55,13 +55,13 @@
 #custom-espaco {
     padding: 0 10px;
     margin: 0 4px;
-    border-radius: 15px; /* arredondamento individual */
-    background: rgba(0, 0, 0, 0.6); /* menos transparente */
+    border-radius: 15px;
+    background: rgba(0, 0, 255, 0.2);
     color: #ffffff;
     transition: background 0.3s ease;
 }
 
-/* hover nos módulos */
+/* hover módulos */
 #hyprland-window:hover,
 #clock:hover,
 #pulseaudio:hover,
@@ -73,5 +73,5 @@
 #custom-power:hover,
 #custom-reboot:hover,
 #custom-espaco:hover {
-    background: rgba(0, 0, 0, 0.75);
+    background: rgba(0, 0, 255, 0.2);
 }

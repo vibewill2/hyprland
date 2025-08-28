@@ -22,7 +22,8 @@
     "battery",
     "custom/espaco",
     "custom/power",
-    "custom/reboot"
+    "custom/reboot",
+    "custom/color-toggle"
   ],
 
   "tray": {
@@ -100,5 +101,13 @@
   "custom/reboot": {
     "format": "",
     "on-click": "systemctl reboot"
+  },
+
+  "custom/color-toggle": {
+    "exec": "echo '\uf1fc'",   // paint-brush do Font Awesome
+    "interval": 0,
+    "format": "{text}",
+    "tooltip": "Muda cor da barra",
+    "on-click": "~/.config/waybar/scripts/color_toggle.sh"
   }
 }
