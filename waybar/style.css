@@ -1,6 +1,6 @@
 #waybar {
     border-radius: 15px;
-    background: rgba(0, 0, 0, 0.3); /* mais transparente que antes */
+    background: rgba(0, 0, 0, 0.2); /* mais transparente que antes */
     border-bottom: 2px solid #0077ff;
     padding: 5px;
     transition: background 0.3s ease;
@@ -12,7 +12,7 @@
     margin: 0 4px;
     border-radius: 15px;
     color: #ffffff;
-    background: rgba(0, 0, 0, 0.5); /* mantém menos transparente */
+    background: rgba(0, 0, 0, 0.6); /* menos transparente */
     border: none;
     transition: background 0.3s ease, color 0.3s ease, opacity 0.3s ease;
     opacity: 0.95;
@@ -26,20 +26,28 @@
 
 /* workspace ativa */
 #workspaces button.active {
-    background: rgba(0, 119, 255, 0.8); /* azul quando ativa */
+    background: rgba(0, 119, 255, 0.8); /* azul bem visível */
     box-shadow: 0 0 8px rgba(0, 119, 255, 0.9);
     opacity: 1;
 }
 
 /* workspace ocupada */
 #workspaces button.occupied {
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.6);
 }
 
 /* workspace urgente */
 #workspaces button.urgent {
-    background: rgba(255, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.6);
 }
+
+/* cores diferentes só nos ícones das workspaces */
+#workspaces button:nth-child(1) { color: #ff6347; }   /* vermelho */
+#workspaces button:nth-child(2) { color: #3cb371; }   /* verde */
+#workspaces button:nth-child(3) { color: #4682b4; }   /* azul */
+#workspaces button:nth-child(4) { color: #daa520; }   /* dourado */
+#workspaces button:nth-child(5) { color: #ba55d3; }   /* roxo */
+#workspaces button:nth-child(6) { color: #ff8c00; }   /* laranja */
 
 /* --- Módulos arredondados --- */
 #hyprland-window,
@@ -57,10 +65,24 @@
     padding: 0 10px;
     margin: 0 4px;
     border-radius: 15px;
-    background: rgba(0, 0, 0, 0.5); /* módulos continuam menos transparentes */
+    background: rgba(0, 0, 0, 0.6); /* menos transparente */
     color: #ffffff;
     transition: background 0.3s ease;
 }
+
+/* cores diferentes só nos ícones dos módulos */
+#hyprland-window { color: #ff6347; }        /* vermelho */
+#clock { color: #3cb371; }                  /* verde */
+#pulseaudio { color: #4682b4; }             /* azul */
+#custom-mic { color: #daa520; }             /* dourado */
+#network { color: #ba55d3; }                /* roxo */
+#cpu { color: #ff8c00; }                    /* laranja */
+#memory { color: #00ced1; }                 /* ciano */
+#custom-waybar-restart { color: #ff69b4; }  /* rosa */
+#custom-power { color: #00bfff; }           /* azul claro */
+#custom-reboot { color: #7cfc00; }          /* verde-limão */
+#custom-color-toggle { color: #ffd700; }    /* amarelo */
+#custom-brush { color: #ff00ff; }           /* magenta */
 
 /* hover módulos */
 #hyprland-window:hover,
