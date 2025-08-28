@@ -1,50 +1,45 @@
 /* --- Barra principal --- */
 #waybar {
     border-radius: 15px;
-    background: rgba(0, 0, 0, 0); /* Transparência total */
+    background: rgba(0, 0, 0, 0.2); /* leve transparência da barra */
+    border-bottom: 2px solid #0077ff; /* borda azul na parte inferior */
+    padding: 5px;
 }
 
 /* --- Workspaces --- */
 #workspaces button {
     padding: 0 10px;
     margin: 0 4px;
-    border-radius: 50%;
+    border-radius: 15px; /* arredondamento individual */
     color: #ffffff; /* texto branco */
-    background: #000000; /* fundo preto */
+    background: rgba(0, 0, 0, 0.6); /* menos transparente */
+    border: none;
     transition: background 0.3s ease, color 0.3s ease, opacity 0.3s ease;
-    opacity: 0.8;
+    opacity: 0.9;
 }
 
 /* efeito hover */
 #workspaces button:hover {
-    background: #222222; /* hover cinza escuro */
-    color: #ffffff;
+    background: rgba(0, 0, 0, 0.75); /* hover mais visível */
     opacity: 1;
 }
 
 /* workspace ativa */
 #workspaces button.active {
-    background: #0077ff; /* azul para workspace ativa */
-    color: #ffffff;
-    box-shadow: 0 0 8px rgba(0, 119, 255, 0.7); /* sombra azul suave */
+    background: rgba(0, 119, 255, 0.8); /* azul mais sólido */
+    box-shadow: 0 0 8px rgba(0, 119, 255, 0.9);
     opacity: 1;
 }
 
 /* workspace ocupada */
 #workspaces button.occupied {
-    background: #000000; /* fundo preto */
-    color: #ffffff;
-    opacity: 0.9;
+    background: rgba(0, 0, 0, 0.65);
 }
 
 /* workspace urgente */
 #workspaces button.urgent {
-    background: #bf616a; /* vermelho sólido */
-    color: #ffffff;
-    opacity: 1;
+    background: rgba(191, 97, 106, 0.8);
 }
-
-@import "/home/vibewill/.cache/wal/colors-waybar.css";
 
 /* --- Módulos arredondados --- */
 #hyprland-window,
@@ -60,13 +55,13 @@
 #custom-espaco {
     padding: 0 10px;
     margin: 0 4px;
-    border-radius: 50%; 
-    background: #000000; /* fundo preto */
-    color: #ffffff; /* texto branco */
-    transition: background 0.3s ease, color 0.3s ease, opacity 0.3s ease;
+    border-radius: 15px; /* arredondamento individual */
+    background: rgba(0, 0, 0, 0.6); /* menos transparente */
+    color: #ffffff;
+    transition: background 0.3s ease;
 }
 
-/* efeito hover nos módulos */
+/* hover nos módulos */
 #hyprland-window:hover,
 #clock:hover,
 #pulseaudio:hover,
@@ -78,6 +73,5 @@
 #custom-power:hover,
 #custom-reboot:hover,
 #custom-espaco:hover {
-    background: #222222; /* hover cinza escuro */
-    opacity: 1;
+    background: rgba(0, 0, 0, 0.75);
 }
