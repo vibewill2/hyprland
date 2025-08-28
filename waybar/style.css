@@ -9,35 +9,42 @@
     padding: 0 10px;
     margin: 0 4px;
     border-radius: 50%;
-    transition: background 0.3s ease, color 0.3s ease;
     color: #ffffff; /* texto branco */
     background: #000000; /* fundo preto */
+    transition: background 0.3s ease, color 0.3s ease, opacity 0.3s ease;
+    opacity: 0.8;
 }
 
 /* efeito hover */
 #workspaces button:hover {
     background: #222222; /* hover cinza escuro */
     color: #ffffff;
+    opacity: 1;
 }
 
 /* workspace ativa */
 #workspaces button.active {
-    background: #111111; /* preto mais claro para ativo */
+    background: #0077ff; /* azul para workspace ativa */
     color: #ffffff;
-    box-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
+    box-shadow: 0 0 8px rgba(0, 119, 255, 0.7); /* sombra azul suave */
+    opacity: 1;
 }
 
 /* workspace ocupada */
 #workspaces button.occupied {
     background: #000000; /* fundo preto */
     color: #ffffff;
+    opacity: 0.9;
 }
 
 /* workspace urgente */
 #workspaces button.urgent {
     background: #bf616a; /* vermelho sólido */
     color: #ffffff;
+    opacity: 1;
 }
+
+@import "/home/vibewill/.cache/wal/colors-waybar.css";
 
 /* --- Módulos arredondados --- */
 #hyprland-window,
@@ -56,7 +63,7 @@
     border-radius: 50%; 
     background: #000000; /* fundo preto */
     color: #ffffff; /* texto branco */
-    transition: background 0.3s ease, color 0.3s ease;
+    transition: background 0.3s ease, color 0.3s ease, opacity 0.3s ease;
 }
 
 /* efeito hover nos módulos */
@@ -72,4 +79,5 @@
 #custom-reboot:hover,
 #custom-espaco:hover {
     background: #222222; /* hover cinza escuro */
+    opacity: 1;
 }
