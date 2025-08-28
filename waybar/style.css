@@ -1,11 +1,7 @@
 /* --- Barra principal --- */
 #waybar {
-    border-top-left-radius: 15px;
-    border-bottom-left-radius: 15px;
-    border-top-right-radius: 15px;
-    border-bottom-right-radius: 15px;
-
-    background: rgba(46, 52, 64, 0); /* Transparência total */
+    border-radius: 15px;
+    background: rgba(0, 0, 0, 0); /* Transparência total */
 }
 
 /* --- Workspaces --- */
@@ -13,29 +9,28 @@
     padding: 0 10px;
     margin: 0 4px;
     border-radius: 50%;
-    transition: background 0.3s ease, color 0.3s ease; /* transição suave de cores */
-    color: #d8dee9; /* inativo */
-    background: #4c566a; /* cor sólida */
+    transition: background 0.3s ease, color 0.3s ease;
+    color: #ffffff; /* texto branco */
+    background: #000000; /* fundo preto */
 }
 
 /* efeito hover */
 #workspaces button:hover {
-    background: #5e81ac;
-    color: #eceff4;
+    background: #222222; /* hover cinza escuro */
+    color: #ffffff;
 }
 
 /* workspace ativa */
 #workspaces button.active {
-    background: #88c0d0; /* azul sólido */
-    color: #2e3440;
-    /* efeito pulse compatível: usando box-shadow e opacidade */
-    box-shadow: 0 0 8px rgba(136, 192, 208, 0.7);
+    background: #111111; /* preto mais claro para ativo */
+    color: #ffffff;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
 }
 
 /* workspace ocupada */
 #workspaces button.occupied {
-    background: #ebcb8b; /* amarelo sólido */
-    color: #2e3440;
+    background: #000000; /* fundo preto */
+    color: #ffffff;
 }
 
 /* workspace urgente */
@@ -59,9 +54,9 @@
     padding: 0 10px;
     margin: 0 4px;
     border-radius: 50%; 
-    background: #4c566a; /* cor sólida */
-    color: #d8dee9; 
-    transition: background 0.3s ease, color 0.3s ease; /* transição suave de cores */
+    background: #000000; /* fundo preto */
+    color: #ffffff; /* texto branco */
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
 /* efeito hover nos módulos */
@@ -76,5 +71,5 @@
 #custom-power:hover,
 #custom-reboot:hover,
 #custom-espaco:hover {
-    background: #5e81ac; /* efeito hover sólido */
+    background: #222222; /* hover cinza escuro */
 }
