@@ -1,6 +1,6 @@
 #waybar {
     border-radius: 15px;
-    background: rgba(0, 0, 0, 0.2); /* quase sólido */
+    background: rgba(0, 0, 0, 0.2);
     border-bottom: 2px solid #0077ff;
     padding: 5px;
     transition: background 0.3s ease;
@@ -51,8 +51,7 @@
 #memory,
 #custom-waybar-restart,
 #custom-power,
-#custom-reboot,
-#custom-espaco {
+#custom-reboot {
     padding: 0 10px;
     margin: 0 4px;
     border-radius: 15px;
@@ -71,7 +70,7 @@
 #memory:hover,
 #custom-waybar-restart:hover,
 #custom-power:hover,
-#custom-reboot:hover,
-#custom-espaco:hover {
+#custom-reboot:hover {
     background: rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
 }
