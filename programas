@@ -3,4 +3,6 @@ nwg-look
 swww
 sudo dnf copr enable solopasha/hyprland
 sudo dnf copr enable tywil04/ly
+sudo dnf copr enable vibewill/superfile
+
 dejavu-sans-mono-fonts
