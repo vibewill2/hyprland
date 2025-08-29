@@ -3,4 +3,4 @@ nwg-look
 swww
 sudo dnf copr enable solopasha/hyprland
 sudo dnf copr enable tywil04/ly
-
+dejavu-sans-mono-fonts
