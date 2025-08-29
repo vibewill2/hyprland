@@ -1,6 +1,6 @@
 #waybar {
     border-radius: 15px;
-    background: rgba(0, 0, 0, 0.2); /* mais transparente que antes */
+    background: rgba(0, 0, 0, 0.6); /* menos transparente */
     border-bottom: 2px solid #0077ff;
     padding: 5px;
     transition: background 0.3s ease;
@@ -26,7 +26,7 @@
 
 /* workspace ativa */
 #workspaces button.active {
-    background: rgba(0, 119, 255, 0.8); /* azul bem visível */
+    background: rgba(0, 119, 255, 0.8); /* azul mais visível */
     box-shadow: 0 0 8px rgba(0, 119, 255, 0.9);
     opacity: 1;
 }
