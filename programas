@@ -4,5 +4,7 @@ swww
 sudo dnf copr enable solopasha/hyprland
 sudo dnf copr enable tywil04/ly
 sudo dnf copr enable vibewill/superfile
+git clone https://aur.archlinux.org/yay.git
+
 
 dejavu-sans-mono-fonts
