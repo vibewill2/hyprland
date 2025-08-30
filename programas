@@ -2,6 +2,7 @@ waypaper
 nwg-look
 swww
 superfile
+grub-btrfs
 sudo dnf copr enable solopasha/hyprland
 sudo dnf copr enable tywil04/ly
 sudo dnf copr enable relativesure/all-packages
