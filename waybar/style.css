@@ -61,7 +61,8 @@
 #custom-power,
 #custom-reboot,
 #custom-color-toggle,
-#custom-brush {
+#custom-brush,
+#custom-cava {
     padding: 0 10px;
     margin: 0 4px;
     border-radius: 15px;
@@ -83,6 +84,7 @@
 #custom-reboot { color: #7cfc00; }          /* verde-limão */
 #custom-color-toggle { color: #ffd700; }    /* amarelo */
 #custom-brush { color: #ff00ff; }           /* magenta */
+#custom-cava { color: #00ff7f; }            /* verde-spring */
 
 /* hover módulos */
 #hyprland-window:hover,
@@ -96,7 +98,8 @@
 #custom-power:hover,
 #custom-reboot:hover,
 #custom-color-toggle:hover,
-#custom-brush:hover {
+#custom-brush:hover,
+#custom-cava:hover {
     background: rgba(0, 0, 0, 0.6);
     border-radius: 15px;
 }
