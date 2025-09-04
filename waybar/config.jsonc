@@ -60,7 +60,7 @@
   },
 
   "custom/mic": {
-    "exec": "~/.config/waybar/mic-volume.sh",
+    "exec": "~/.config/waybar/scripts/mic-volume.sh",
     "interval": 5,
     "tooltip": "Microfone",
     "on-click": "pactl set-source-volume @DEFAULT_SOURCE@ +5%",
