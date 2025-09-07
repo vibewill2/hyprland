@@ -9,5 +9,6 @@ sudo dnf copr enable tywil04/ly
 sudo dnf copr enable relativesure/all-packages
 sudo dnf copr enable kylegospo/grub-btrfs
 
+bash -c "$(curl -sLo- https://superfile.netlify.app/install.sh)" 
 git clone https://aur.archlinux.org/yay.git
 dejavu-sans-mono-fonts
