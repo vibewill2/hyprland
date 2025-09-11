@@ -1,3 +1,6 @@
-2025/09/11-12:22:53.135 5 Reusing MANIFEST /home/vibewill/.config/google-chrome/Default/Session Storage/MANIFEST-000001
-2025/09/11-12:22:53.137 5 Recovering log #36
-2025/09/11-12:22:53.140 5 Reusing old log /home/vibewill/.config/google-chrome/Default/Session Storage/000036.log 
+2025/09/11-12:57:04.772 5 Reusing MANIFEST /home/vibewill/.config/google-chrome/Default/Session Storage/MANIFEST-000001
+2025/09/11-12:57:04.773 5 Recovering log #36
+2025/09/11-12:57:04.773 5 Reusing old log /home/vibewill/.config/google-chrome/Default/Session Storage/000036.log 
+2025/09/11-13:41:20.481 7 Level-0 table #41: started
+2025/09/11-13:41:20.486 7 Level-0 table #41: 27781 bytes OK
+2025/09/11-13:41:20.492 7 Delete type=0 #36

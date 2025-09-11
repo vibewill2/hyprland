@@ -1,9 +1,31 @@
 #!/bin/bash
 
-# Script para converter números do cava em barras visuais
-cava -p ~/.config/waybar/cava_config 2>/dev/null | while read -r line; do
+# Script melhorado para CAVA no waybar
+
+# Função para limpar processos ao sair
+cleanup() {
+    pkill -f "cava -p"
+    exit 0
+}
+
+trap cleanup EXIT
+
+# Verificar se CAVA está disponível
+if ! command -v cava &> /dev/null; then
+    echo "♪ ▁▁▁▁▁▁▁▁▁▁"
+    exit 0
+fi
+
+# Timeout para evitar travamento
+timeout 10 cava -p ~/.config/waybar/cava_config 2>/dev/null | while read -r line; do
     # Remove espaços da linha
     clean_line=$(echo "$line" | tr -d ' ')
+    
+    # Se linha vazia, mostrar silêncio
+    if [ -z "$clean_line" ]; then
+        echo "♪ ▁▁▁▁▁▁▁▁▁▁"
+        continue
+    fi
     
     # Converte números (0-7) em caracteres de barra
     visual_line=""
@@ -29,3 +51,6 @@ cava -p ~/.config/waybar/cava_config 2>/dev/null | while read -r line; do
     
     echo "♪ $visual_line"
 done
+
+# Se chegou aqui, mostrar estado padrão
+echo "♪ ▁▁▁▁▁▁▁▁▁▁"

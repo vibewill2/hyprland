@@ -5,9 +5,11 @@
   "margin-left": 10,
   "margin-right": 10,
 
-  "modules-left": ["hyprland/workspaces", "hyprland/window", "custom/cava", "tray"],
+  "modules-left": ["hyprland/workspaces", "hyprland/window", "tray"],
   "modules-center": ["clock"],
   "modules-right": [
+    "custom/cava",
+    "custom/espaco",
     "pulseaudio",
     "custom/mic",
     "custom/espaco",
@@ -107,10 +109,9 @@
   },
 
   "custom/cava": {
-    "exec": "~/.config/waybar/scripts/cava-simple.sh",
+    "exec": "~/.config/waybar/scripts/volume-reactive.sh",
     "format": "{}",
-    "tooltip": "Visualizador de áudio",
-    "restart-interval": 1,
-    "on-click": "pkill -f cava"
+    "tooltip": "Visualizador reativo ao volume",
+    "restart-interval": 1
   }
 }

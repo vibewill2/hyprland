@@ -1,3 +1,5 @@
-2025/09/11-12:22:55.651 284bb0 Reusing MANIFEST /home/vibewill/.config/google-chrome/Default/IndexedDB/https_www.youtube.com_0.indexeddb.leveldb/MANIFEST-000001
-2025/09/11-12:22:55.652 284bb0 Recovering log #34
-2025/09/11-12:22:55.666 284bb0 Reusing old log /home/vibewill/.config/google-chrome/Default/IndexedDB/https_www.youtube.com_0.indexeddb.leveldb/000034.log 
+2025/09/11-12:57:08.082 1e3cb Reusing MANIFEST /home/vibewill/.config/google-chrome/Default/IndexedDB/https_www.youtube.com_0.indexeddb.leveldb/MANIFEST-000001
+2025/09/11-12:57:08.083 1e3cb Recovering log #38
+2025/09/11-12:57:08.085 1e3cb Reusing old log /home/vibewill/.config/google-chrome/Default/IndexedDB/https_www.youtube.com_0.indexeddb.leveldb/000038.log 
+2025/09/11-12:57:08.086 1e3cb Delete type=2 #36
+2025/09/11-12:57:08.087 1e3cb Delete type=2 #39

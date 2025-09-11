@@ -1,27 +1,3 @@
-2025/09/11-11:04:15.067 5 Reusing MANIFEST /home/vibewill/.config/google-chrome/Default/Local Storage/leveldb/MANIFEST-000001
-2025/09/11-11:04:15.068 5 Recovering log #107
-2025/09/11-11:04:15.076 5 Reusing old log /home/vibewill/.config/google-chrome/Default/Local Storage/leveldb/000107.log 
-2025/09/11-11:07:16.372 7 Level-0 table #111: started
-2025/09/11-11:07:16.378 7 Level-0 table #111: 19885 bytes OK
-2025/09/11-11:07:16.382 7 Delete type=0 #107
-2025/09/11-11:08:08.565 7 Level-0 table #113: started
-2025/09/11-11:08:08.572 7 Level-0 table #113: 11540 bytes OK
-2025/09/11-11:08:08.576 7 Delete type=0 #110
-2025/09/11-11:23:29.146 7 Level-0 table #115: started
-2025/09/11-11:23:29.151 7 Level-0 table #115: 16122 bytes OK
-2025/09/11-11:23:29.155 7 Delete type=0 #112
-2025/09/11-11:23:29.156 7 Compacting 4@0 + 1@1 files
-2025/09/11-11:23:29.201 7 Generated table #116@0: 534 keys, 983700 bytes
-2025/09/11-11:23:29.201 7 Compacted 4@0 + 1@1 files => 983700 bytes
-2025/09/11-11:23:29.205 7 compacted to: files[ 0 1 1 0 0 0 0 ]
-2025/09/11-11:23:29.206 7 Delete type=2 #106
-2025/09/11-11:23:29.206 7 Delete type=2 #108
-2025/09/11-11:23:29.206 7 Delete type=2 #111
-2025/09/11-11:23:29.206 7 Delete type=2 #113
-2025/09/11-11:23:29.206 7 Delete type=2 #115
-2025/09/11-11:34:39.474 7 Level-0 table #118: started
-2025/09/11-11:34:39.480 7 Level-0 table #118: 19230 bytes OK
-2025/09/11-11:34:39.485 7 Delete type=0 #114
-2025/09/11-12:08:29.146 7 Level-0 table #120: started
-2025/09/11-12:08:29.152 7 Level-0 table #120: 13761 bytes OK
-2025/09/11-12:08:29.158 7 Delete type=0 #117
+2025/09/11-12:43:00.146 5 Reusing MANIFEST /home/vibewill/.config/google-chrome/Default/Local Storage/leveldb/MANIFEST-000001
+2025/09/11-12:43:00.154 5 Recovering log #123
+2025/09/11-12:43:00.155 5 Reusing old log /home/vibewill/.config/google-chrome/Default/Local Storage/leveldb/000123.log 
