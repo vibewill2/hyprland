@@ -1,0 +1,6 @@
+2025/09/11-11:04:15.052 dc3 Reusing MANIFEST /home/vibewill/.config/google-chrome/Default/Sync Data/LevelDB/MANIFEST-000001
+2025/09/11-11:04:15.061 dc3 Recovering log #26
+2025/09/11-11:04:15.100 dc3 Reusing old log /home/vibewill/.config/google-chrome/Default/Sync Data/LevelDB/000026.log 
+2025/09/11-11:21:49.175 dbe Level-0 table #31: started
+2025/09/11-11:21:49.186 dbe Level-0 table #31: 110015 bytes OK
+2025/09/11-11:21:49.191 dbe Delete type=0 #26

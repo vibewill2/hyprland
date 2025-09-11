@@ -1,0 +1,10 @@
+{
+   "extDesc": {
+      "description": "Erweiterungsbeschreibung",
+      "message": "QR-Code-Erweiterung: Eine schnellere, direktere Möglichkeit, QR-Codes zu erstellen und zu teilen, sogar besser als Kurzlinks."
+   },
+   "extName": {
+      "description": "Erweiterungsname",
+      "message": "QR-Code-Generator"
+   }
+}

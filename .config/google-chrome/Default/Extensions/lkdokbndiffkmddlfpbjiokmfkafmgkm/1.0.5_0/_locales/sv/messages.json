@@ -1,0 +1,10 @@
+{
+   "extDesc": {
+      "description": "Beskrivning av tillägget",
+      "message": "QR-kodtillägg: Ett snabbare, mer direkt sätt att skapa och dela QR-koder, ännu bättre än korta länkar."
+   },
+   "extName": {
+      "description": "Tilläggsnamn",
+      "message": "QR-kodgenerator"
+   }
+}

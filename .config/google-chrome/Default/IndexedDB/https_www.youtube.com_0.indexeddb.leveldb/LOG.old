@@ -1,0 +1,12 @@
+2025/09/11-11:04:30.118 dc3 Reusing MANIFEST /home/vibewill/.config/google-chrome/Default/IndexedDB/https_www.youtube.com_0.indexeddb.leveldb/MANIFEST-000001
+2025/09/11-11:04:30.119 dc3 Recovering log #30
+2025/09/11-11:04:30.139 dc3 Reusing old log /home/vibewill/.config/google-chrome/Default/IndexedDB/https_www.youtube.com_0.indexeddb.leveldb/000030.log 
+2025/09/11-11:04:30.739 dc0 Level-0 table #35: started
+2025/09/11-11:04:30.770 dc0 Level-0 table #35: 2018470 bytes OK
+2025/09/11-11:04:30.776 dc0 Delete type=0 #30
+2025/09/11-11:04:42.495 dc0 Compacting 1@1 + 1@2 files
+2025/09/11-11:04:42.504 dc0 Generated table #36@1: 819 keys, 62402 bytes
+2025/09/11-11:04:42.504 dc0 Compacted 1@1 + 1@2 files => 62402 bytes
+2025/09/11-11:04:42.507 dc0 compacted to: files[ 0 0 1 0 0 0 0 ]
+2025/09/11-11:04:42.508 dc0 Delete type=2 #32
+2025/09/11-11:04:42.508 dc0 Delete type=2 #35

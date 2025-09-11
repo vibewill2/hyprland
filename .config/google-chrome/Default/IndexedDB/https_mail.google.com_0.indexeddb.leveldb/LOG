@@ -1,0 +1,6 @@
+2025/09/09-15:31:51.870 708 Reusing MANIFEST /home/vibewill/.config/google-chrome/Default/IndexedDB/https_mail.google.com_0.indexeddb.leveldb/MANIFEST-000001
+2025/09/09-15:31:51.871 708 Recovering log #4
+2025/09/09-15:31:51.879 708 Reusing old log /home/vibewill/.config/google-chrome/Default/IndexedDB/https_mail.google.com_0.indexeddb.leveldb/000004.log 
+2025/09/09-15:31:55.784 708 Level-0 table #8: started
+2025/09/09-15:31:55.824 708 Level-0 table #8: 3222602 bytes OK
+2025/09/09-15:31:55.829 708 Delete type=0 #4

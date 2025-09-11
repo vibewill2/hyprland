@@ -1,0 +1,10 @@
+{
+   "extDesc": {
+      "description": "Eklenti açıklaması",
+      "message": "QR Kod Eklentisi: QR kodları oluşturmanın ve paylaşmanın daha hızlı, daha doğrudan bir yolu, kısa bağlantılardan bile daha iyi."
+   },
+   "extName": {
+      "description": "Eklenti adı",
+      "message": "QR kod oluşturucu"
+   }
+}

@@ -1,0 +1,10 @@
+{
+   "extDesc": {
+      "description": "Laajennuksen kuvaus",
+      "message": "QR-koodilaajennus: Nopeampi, suorempi tapa luoda ja jakaa QR-koodeja, jopa parempi kuin lyhyet linkit."
+   },
+   "extName": {
+      "description": "Laajennuksen nimi",
+      "message": "QR-koodigeneraattori"
+   }
+}

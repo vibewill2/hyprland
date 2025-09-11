@@ -1,0 +1,6 @@
+2025/09/09-15:56:27.188 70a Creating DB /home/vibewill/.config/google-chrome/Default/IndexedDB/https_www.fandom.com_0.indexeddb.leveldb since it was missing.
+2025/09/09-15:56:27.194 70a Reusing MANIFEST /home/vibewill/.config/google-chrome/Default/IndexedDB/https_www.fandom.com_0.indexeddb.leveldb/MANIFEST-000001
+2025/09/09-16:02:31.704 708 Level-0 table #5: started
+2025/09/09-16:02:31.707 708 Level-0 table #5: 4020 bytes OK
+2025/09/09-16:02:31.710 708 Delete type=0 #3
+2025/09/09-16:02:31.710 708 Manual compaction at level-0 from (begin) .. (end); will stop at (end)

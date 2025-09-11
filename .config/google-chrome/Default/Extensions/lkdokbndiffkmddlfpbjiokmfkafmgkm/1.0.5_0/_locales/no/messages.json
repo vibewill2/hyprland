@@ -1,0 +1,10 @@
+{
+   "extDesc": {
+      "description": "Utvidelsesbeskrivelse",
+      "message": "QR-kodeutvidelse: En raskere, mer direkte måte å lage og dele QR-koder, enda bedre enn korte lenker."
+   },
+   "extName": {
+      "description": "Utvidelsesnavn",
+      "message": "QR-kodegenerator"
+   }
+}

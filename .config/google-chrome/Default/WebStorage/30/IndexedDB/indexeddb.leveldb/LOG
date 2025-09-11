@@ -1,0 +1,6 @@
+2025/09/09-20:05:29.601 fb2 Creating DB /home/vibewill/.config/google-chrome/Default/WebStorage/30/IndexedDB/indexeddb.leveldb since it was missing.
+2025/09/09-20:05:29.606 fb2 Reusing MANIFEST /home/vibewill/.config/google-chrome/Default/WebStorage/30/IndexedDB/indexeddb.leveldb/MANIFEST-000001
+2025/09/09-20:05:49.815 fb4 Level-0 table #5: started
+2025/09/09-20:05:49.818 fb4 Level-0 table #5: 480 bytes OK
+2025/09/09-20:05:49.822 fb4 Delete type=0 #3
+2025/09/09-20:05:49.823 fb4 Manual compaction at level-0 from (begin) .. (end); will stop at (end)

@@ -1,0 +1,10 @@
+{
+   "extDesc": {
+      "description": "Extensie beschrijving",
+      "message": "QR Code Extensie: Een snellere, meer directe manier om QR-codes te maken en te delen, zelfs beter dan korte links."
+   },
+   "extName": {
+      "description": "Extensie naam",
+      "message": "QR-codecreator"
+   }
+}
