@@ -1,20 +1,20 @@
 #!/bin/bash
-# --- Hyprland + KDE completo no Fedora (5 workspaces fixas + painel topo) ---
+# --- Hyprland + KDE automático plug-and-play no Fedora ---
 
-# 1️⃣ Instala Hyprland + dependências
+# 1⃣ Instala Hyprland + dependências
 sudo dnf install -y \
     hyprland wayland-utils swaybg swaylock wl-clipboard \
     pamixer kitty rofi polkit-kde-agent-1 \
     xdg-desktop-portal xdg-desktop-portal-kde \
     mako grim slurp swayidle playerctl
 
-# 2️⃣ Instala pacotes KDE + Plasma Desktop
+# 2⃣ Instala pacotes KDE + Plasma Desktop
 sudo dnf install -y \
     plasma-workspace plasma-desktop kde-cli-tools \
     dolphin konsole kate okular \
     breeze-gtk breeze-icon-theme kde-gtk-config
 
-# 3️⃣ Cria environment.conf
+# 3⃣ Cria environment.conf
 mkdir -p ~/.config/hypr
 cat > ~/.config/hypr/environment.conf << 'EOF'
 export QT_QPA_PLATFORM=wayland
@@ -26,19 +26,19 @@ export XCURSOR_SIZE=24
 export QT_STYLE_OVERRIDE=Breeze
 EOF
 
-# 4️⃣ Configura hyprland.conf com 5 workspaces fixas
+# 4⃣ Configura hyprland.conf
 mkdir -p ~/.config/hypr
 HYPRCONF=~/.config/hypr/hyprland.conf
 cat > "$HYPRCONF" << 'EOF'
-# --- Hyprland + KDE ---
-monitor=*,1920x1080@60,1,1,0,0
+# --- Hyprland config com KDE ---
 
-# Criar 5 workspaces fixas
-workspace=1
-workspace=2
-workspace=3
-workspace=4
-workspace=5
+# Layout teclado BR
+input {
+    kb_layout = br
+}
+
+# Resolução fixa 1400x900
+monitor=,1400x900,0x0,1
 
 # Autostart KDE + notificações
 exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
@@ -48,7 +48,6 @@ exec-once = gsettings set org.gnome.desktop.interface gtk-theme "Breeze"
 exec-once = gsettings set org.gnome.desktop.interface icon-theme "breeze"
 exec-once = hyprctl setcursor Breeze 24
 
-# Inicia painel do KDE e Mako notifications
 exec-once = plasmashell &
 exec-once = mako &
 
@@ -57,12 +56,22 @@ bind = SUPER, RETURN, exec, konsole
 bind = SUPER, E, exec, dolphin
 bind = SUPER, W, exec, kate
 
-# Atalhos 5 áreas de trabalho
+# Atalho fechar janela
+bind = SUPER, Q, killactive
+
+# 5 workspaces fixos
 bind = SUPER, 1, workspace, 1
 bind = SUPER, 2, workspace, 2
 bind = SUPER, 3, workspace, 3
 bind = SUPER, 4, workspace, 4
 bind = SUPER, 5, workspace, 5
+
+# Mover janelas entre workspaces
+bind = SUPER SHIFT, 1, movetoworkspace, 1
+bind = SUPER SHIFT, 2, movetoworkspace, 2
+bind = SUPER SHIFT, 3, movetoworkspace, 3
+bind = SUPER SHIFT, 4, movetoworkspace, 4
+bind = SUPER SHIFT, 5, movetoworkspace, 5
 
 # Multimídia
 bind = XF86AudioRaiseVolume, exec, pamixer -i 5
@@ -76,7 +85,7 @@ bind = XF86AudioPrev, exec, playerctl previous
 bind = SUPER, L, exec, swaylock -f -c 000000
 EOF
 
-# 5️⃣ Configura painel KDE (topo + Pager 5 workspaces)
+# 5⃣ Configura painel KDE (topo + Pager 5 workspaces numéricos)
 PLASMACONF=~/.config/plasma-org.kde.plasma.desktop-appletsrc
 mkdir -p ~/.config
 cat > "$PLASMACONF" << 'EOF'
@@ -104,6 +113,9 @@ showWindowIcons=false
 showOnlyCurrentActivity=false
 virtualDesktopCount=5
 
+# Mostra números em vez de miniaturas
+displayedText=number
+
 [Containments][1][Applets][3]
 plugin=org.kde.plasma.systemtray
 
@@ -114,7 +126,7 @@ plugin=org.kde.plasma.digitalclock
 alignment=0
 EOF
 
-# 6️⃣ Cria sessão Hyprland + KDE no GDM
+# 6⃣ Cria sessão Hyprland + KDE no GDM
 SESSIONFILE=/usr/share/wayland-sessions/hyprland-kde.desktop
 sudo tee $SESSIONFILE > /dev/null << 'EOF'
 [Desktop Entry]
@@ -125,17 +137,18 @@ Type=Application
 DesktopNames=Hyprland
 EOF
 
-# 7️⃣ Configura Hyprland como sessão padrão (login automático)
+# 7⃣ Configura Hyprland como sessão padrão para login automático
 if [ -f /etc/gdm/custom.conf ]; then
     sudo sed -i '/^\[daemon\]/a AutomaticLoginEnable=True\nAutomaticLogin='$USER'' /etc/gdm/custom.conf
 fi
 
-# 8️⃣ Define wallpaper e tema Breeze
+# 8⃣ Configura wallpaper e tema Breeze automaticamente
 gsettings set org.kde.desktop.background picture-uri "file:///usr/share/wallpapers/Breeze/default.jpg"
 gsettings set org.gnome.desktop.interface gtk-theme "Breeze"
 
-# 9️⃣ Conclusão
-echo "✅ Hyprland + KDE configurado com 5 workspaces fixas!"
-echo "Selecione a sessão 'Hyprland + KDE' no GDM ou será login automático."
-echo "Painel topo, Pager, apps KDE, notificações, lockscreen e multimídia prontos."
-
+# 9⃣ Conclusão
+echo "✅ Hyprland + KDE configurado!"
+echo "→ Sessão: 'Hyprland + KDE' no GDM"
+echo "→ Painel topo, teclado BR, resolução 1400x900"
+echo "→ Workspaces numéricos no painel"
+echo "→ Alternar: SUPER+1..5 | Mover apps: SUPER+SHIFT+1..5 | Fechar: SUPER+Q"
