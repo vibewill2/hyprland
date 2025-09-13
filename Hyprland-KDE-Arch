@@ -1,0 +1,141 @@
+#!/bin/bash
+# --- Hyprland + KDE automático plug-and-play no Arch Linux ---
+
+# 1⃣ Instala Hyprland + dependências
+sudo pacman -Syu --noconfirm \
+    hyprland wayland-utils swaybg swaylock wl-clipboard \
+    pamixer kitty rofi polkit-kde-agent \
+    xdg-desktop-portal xdg-desktop-portal-kde \
+    mako grim slurp swayidle playerctl
+
+# 2⃣ Instala pacotes KDE + Plasma Desktop
+sudo pacman -Syu --noconfirm \
+    plasma-desktop plasma-workspace kde-cli-tools \
+    dolphin konsole kate okular \
+    breeze breeze-gtk kde-gtk-config
+
+# 3⃣ Cria environment.conf
+mkdir -p ~/.config/hypr
+cat > ~/.config/hypr/environment.conf << 'EOF'
+export QT_QPA_PLATFORM=wayland
+export XDG_CURRENT_DESKTOP=KDE
+export XDG_SESSION_DESKTOP=KDE
+export GTK_USE_PORTAL=1
+export XCURSOR_THEME=Breeze
+export XCURSOR_SIZE=24
+export QT_STYLE_OVERRIDE=Breeze
+EOF
+
+# 4⃣ Configura hyprland.conf
+HYPRCONF=~/.config/hypr/hyprland.conf
+cat > "$HYPRCONF" << 'EOF'
+# --- Hyprland config com KDE ---
+
+input {
+    kb_layout = br
+}
+
+monitor=,1400x900,0x0,1
+
+# Autostart KDE + notificações
+exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+exec-once = /usr/lib/xdg-desktop-portal-kde
+exec-once = /usr/lib/xdg-desktop-portal &
+exec-once = hyprctl setcursor Breeze 24
+
+exec-once = plasmashell &
+exec-once = mako &
+
+# Atalhos apps KDE
+bind = SUPER, RETURN, exec, konsole
+bind = SUPER, E, exec, dolphin
+bind = SUPER, W, exec, kate
+
+# Fechar janela
+bind = SUPER, Q, killactive
+
+# Workspaces fixos
+bind = SUPER, 1, workspace, 1
+bind = SUPER, 2, workspace, 2
+bind = SUPER, 3, workspace, 3
+bind = SUPER, 4, workspace, 4
+bind = SUPER, 5, workspace, 5
+
+# Mover janelas
+bind = SUPER SHIFT, 1, movetoworkspace, 1
+bind = SUPER SHIFT, 2, movetoworkspace, 2
+bind = SUPER SHIFT, 3, movetoworkspace, 3
+bind = SUPER SHIFT, 4, movetoworkspace, 4
+bind = SUPER SHIFT, 5, movetoworkspace, 5
+
+# Multimídia
+bind = XF86AudioRaiseVolume, exec, pamixer -i 5
+bind = XF86AudioLowerVolume, exec, pamixer -d 5
+bind = XF86AudioMute, exec, pamixer -t
+bind = XF86AudioPlay, exec, playerctl play-pause
+bind = XF86AudioNext, exec, playerctl next
+bind = XF86AudioPrev, exec, playerctl previous
+
+# Lockscreen
+bind = SUPER, L, exec, swaylock -f -c 000000
+EOF
+
+# 5⃣ Configura painel KDE no topo com pager 5 desktops
+PLASMACONF=~/.config/plasma-org.kde.plasma.desktop-appletsrc
+mkdir -p ~/.config
+cat > "$PLASMACONF" << 'EOF'
+[Containments][1]
+activityId=
+formfactor=2
+immutability=1
+lastScreen=0
+location=3
+plugin=org.kde.panel
+wallpaperplugin=org.kde.image
+
+[Containments][1][Applets][1]
+plugin=org.kde.plasma.kickoff
+
+[Containments][1][Applets][2]
+plugin=org.kde.plasma.pager
+[Containments][1][Applets][2][Configuration][General]
+rows=1
+virtualDesktopCount=5
+displayedText=number
+showWindowIcons=false
+
+[Containments][1][Applets][3]
+plugin=org.kde.plasma.systemtray
+
+[Containments][1][Applets][4]
+plugin=org.kde.plasma.digitalclock
+
+[Containments][1][General]
+alignment=0
+EOF
+
+# 6⃣ Cria sessão Hyprland + KDE no GDM
+SESSIONFILE=/usr/share/wayland-sessions/hyprland-kde.desktop
+sudo tee $SESSIONFILE > /dev/null << 'EOF'
+[Desktop Entry]
+Name=Hyprland + KDE
+Comment=Hyprland with KDE Plasma panel
+Exec=Hyprland
+Type=Application
+DesktopNames=Hyprland
+EOF
+
+# 7⃣ Configura login automático no GDM (se existir)
+if [ -f /etc/gdm/custom.conf ]; then
+    sudo sed -i '/^\[daemon\]/a AutomaticLoginEnable=True\nAutomaticLogin='$USER'' /etc/gdm/custom.conf
+fi
+
+# 8⃣ Define tema Breeze (GTK + KDE)
+gsettings set org.gnome.desktop.interface gtk-theme "Breeze"
+gsettings set org.gnome.desktop.interface icon-theme "breeze"
+
+# 9⃣ Conclusão
+echo "✅ Hyprland + KDE configurado no Arch!"
+echo "→ Sessão 'Hyprland + KDE' disponível no GDM"
+echo "→ Painel no topo, teclado BR, resolução 1400x900"
+echo "→ Workspaces 1-5 fixos no pager"
