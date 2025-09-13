@@ -4,7 +4,7 @@
 # 1⃣ Instala Hyprland + dependências
 sudo pacman -Syu --noconfirm \
     hyprland wayland-utils swaybg swaylock wl-clipboard \
-    pamixer kitty rofi polkit-kde-agent \
+    pamixer kitty rofi waybar cava vim nano fish polkit-kde-agent \
     xdg-desktop-portal xdg-desktop-portal-kde \
     mako grim slurp swayidle playerctl
 
