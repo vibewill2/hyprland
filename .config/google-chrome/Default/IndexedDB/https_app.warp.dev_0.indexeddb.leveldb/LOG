@@ -1,6 +1,0 @@
-2025/09/11-12:51:18.085 a1e Creating DB /home/vibewill/.config/google-chrome/Default/IndexedDB/https_app.warp.dev_0.indexeddb.leveldb since it was missing.
-2025/09/11-12:51:18.090 a1e Reusing MANIFEST /home/vibewill/.config/google-chrome/Default/IndexedDB/https_app.warp.dev_0.indexeddb.leveldb/MANIFEST-000001
-2025/09/11-12:51:18.102 a23 Level-0 table #5: started
-2025/09/11-12:51:18.105 a23 Level-0 table #5: 1311 bytes OK
-2025/09/11-12:51:18.109 a23 Delete type=0 #3
-2025/09/11-12:51:18.109 a23 Manual compaction at level-0 from '\x00\x01\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x02\x00\x00\x00' @ 0 : 0; will stop at (end)

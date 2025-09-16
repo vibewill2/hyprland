@@ -61,7 +61,9 @@
 #custom-powermenu,
 #custom-color-toggle,
 #custom-brush,
-#custom-cava {
+#custom-cava,
+#custom-media-player,
+#custom-background-apps {
     padding: 0 10px;
     margin: 0 4px;
     border-radius: 15px;
@@ -88,6 +90,8 @@
 #custom-color-toggle { color: #ffd700; }    /* amarelo */
 #custom-brush { color: #ff00ff; }           /* magenta */
 #custom-cava { color: #00ff7f; }            /* verde-spring */
+#custom-media-player { color: #ff1493; }    /* deep pink */
+#custom-background-apps { color: #ffa500; }  /* orange */
 
 /* hover módulos */
 #hyprland-window:hover,
@@ -101,7 +105,9 @@
 #custom-powermenu:hover,
 #custom-color-toggle:hover,
 #custom-brush:hover,
-#custom-cava:hover {
+#custom-cava:hover,
+#custom-media-player:hover,
+#custom-background-apps:hover {
     background: rgba(0, 0, 0, 0.6);
     border-radius: 15px;
 }

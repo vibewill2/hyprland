@@ -1,3 +1,0 @@
-2025/09/09-15:24:04.555 708 Creating DB /home/vibewill/.config/google-chrome/Default/IndexedDB/https_www.instagram.com_0.indexeddb.leveldb since it was missing.
-2025/09/09-15:24:04.559 708 Reusing MANIFEST /home/vibewill/.config/google-chrome/Default/IndexedDB/https_www.instagram.com_0.indexeddb.leveldb/MANIFEST-000001
-2025/09/09-15:24:06.500 70d Manual compaction at level-0 from '\x00\x06\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x07\x00\x00\x00' @ 0 : 0; will stop at (end)

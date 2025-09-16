@@ -1,6 +1,0 @@
-2025/09/09-21:55:05.979 fb2 Creating DB /home/vibewill/.config/google-chrome/Default/IndexedDB/https_www.tibiawiki.com.br_0.indexeddb.leveldb since it was missing.
-2025/09/09-21:55:05.986 fb2 Reusing MANIFEST /home/vibewill/.config/google-chrome/Default/IndexedDB/https_www.tibiawiki.com.br_0.indexeddb.leveldb/MANIFEST-000001
-2025/09/09-21:55:16.510 fb4 Level-0 table #5: started
-2025/09/09-21:55:16.513 fb4 Level-0 table #5: 391 bytes OK
-2025/09/09-21:55:16.517 fb4 Delete type=0 #3
-2025/09/09-21:55:16.517 fb4 Manual compaction at level-0 from (begin) .. (end); will stop at (end)
