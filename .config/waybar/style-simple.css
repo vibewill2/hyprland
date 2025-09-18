@@ -1,15 +1,12 @@
 #waybar {
     border-radius: 15px;
-    background: rgba(0, 0, 0, 0.6); /* menos transparente */
+    background: rgba(0, 0, 0, 0.6);
     border-bottom: 2px solid #0077ff;
     padding: 5px;
+    transition: background 0.3s ease;
 }
 
 /* --- Workspaces --- */
-#workspaces {
-    /* animação removida (não suportada) */
-}
-
 #workspaces button {
     padding: 0 12px;
     margin: 0 2px;
@@ -17,45 +14,43 @@
     color: #ffffff;
     background: rgba(0, 0, 0, 0.6);
     border: none;
+    transition: all 0.3s ease;
     opacity: 0.85;
 }
 
+/* hover */
 #workspaces button:hover {
     background: rgba(0, 0, 0, 0.8);
     opacity: 1;
     box-shadow: 0 4px 15px rgba(0, 119, 255, 0.3);
 }
 
-/* Workspace ativa */
+/* workspace ativa */
 #workspaces button.active {
     background: rgba(0, 119, 255, 0.9);
-    box-shadow: 
-        0 0 20px rgba(0, 119, 255, 0.6),
-        0 0 40px rgba(0, 119, 255, 0.4),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 20px rgba(0, 119, 255, 0.6);
     opacity: 1;
 }
 
-/* Workspace ocupada */
+/* workspace ocupada */
 #workspaces button.occupied {
     background: rgba(0, 0, 0, 0.7);
     opacity: 0.95;
     box-shadow: 0 2px 8px rgba(0, 119, 255, 0.2);
 }
 
-/* Workspace urgente */
+/* workspace urgente */
 #workspaces button.urgent {
     background: rgba(255, 99, 71, 0.8);
     box-shadow: 0 0 15px rgba(255, 99, 71, 0.7);
 }
 
-/* cores diferentes só nos ícones das workspaces */
+/* cores diferentes nos ícones das workspaces */
 #workspaces button:nth-child(1) { color: #ff6347; }   /* vermelho */
 #workspaces button:nth-child(2) { color: #3cb371; }   /* verde */
 #workspaces button:nth-child(3) { color: #4682b4; }   /* azul */
 #workspaces button:nth-child(4) { color: #daa520; }   /* dourado */
 #workspaces button:nth-child(5) { color: #ba55d3; }   /* roxo */
-#workspaces button:nth-child(6) { color: #ff8c00; }   /* laranja */
 
 /* --- Módulos arredondados --- */
 #hyprland-window,
@@ -68,7 +63,6 @@
 #custom-waybar-restart,
 #custom-powermenu,
 #custom-color-toggle,
-#custom-brush,
 #custom-cava,
 #custom-media-player,
 #custom-background-apps,
@@ -78,9 +72,10 @@
     border-radius: 15px;
     background: rgba(0, 0, 0, 0.6);
     color: #ffffff;
+    transition: background 0.3s ease;
 }
 
-/* cores diferentes só nos ícones dos módulos */
+/* cores diferentes nos ícones dos módulos */
 #hyprland-window { color: #ff6347; }        /* vermelho */
 #clock { color: #3cb371; }                  /* verde */
 #pulseaudio { color: #4682b4; }             /* azul */
@@ -96,11 +91,15 @@
     font-weight: bold;
 }
 #custom-color-toggle { color: #ffd700; }    /* amarelo */
-#custom-brush { color: #ff00ff; }           /* magenta */
 #custom-cava { color: #00ff7f; }            /* verde-spring */
 #custom-media-player { color: #ff1493; }    /* deep pink */
-#custom-background-apps { color: #ffa500; }  /* orange */
-#custom-active-app { color: #40e0d0; }       /* turquoise */
+#custom-background-apps { color: #ffa500; } /* orange */
+#custom-active-app { 
+    color: #40e0d0;                         /* turquoise */
+    font-size: 16px;
+    font-weight: bold;
+    border: 1px solid rgba(64, 224, 208, 0.3);
+}
 
 /* hover módulos */
 #hyprland-window:hover,
@@ -113,27 +112,10 @@
 #custom-waybar-restart:hover,
 #custom-powermenu:hover,
 #custom-color-toggle:hover,
-#custom-brush:hover,
 #custom-cava:hover,
 #custom-media-player:hover,
 #custom-background-apps:hover,
 #custom-active-app:hover {
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.8);
     border-radius: 15px;
 }
-
-/* Forçar cor vermelha no Powermenu */
-window#waybar #custom-powermenu,
-#waybar #custom-powermenu,
-.modules-right #custom-powermenu {
-    color: #ff0000;
-    font-size: 18px;
-}
-
-/* Estilo especial para ícone da aplicação ativa */
-#custom-active-app {
-    border: 2px solid rgba(64, 224, 208, 0.3);
-    font-size: 18px;
-    font-weight: bold;
-}
-

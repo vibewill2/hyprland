@@ -202,3 +202,11 @@ Gdk-Message: 01:31:26.191: Error reading events from display: Pipe quebrado
 [2025-09-18 10:59:51.763] [warning] 'swap-icon-label' must be a bool.
 [2025-09-18 10:59:51.777] [warning] No batteries.
 [2025-09-18 10:59:51.930] [info] Bar configured (width: 1380, height: 32) for output: HDMI-A-1
+[2025-09-18 11:11:17.824] [info] Using configuration file /home/vibewill/.config/waybar/config.jsonc
+[2025-09-18 11:11:17.829] [info] Discovered appearance 'dark'
+[2025-09-18 11:11:17.829] [info] Using CSS file /home/vibewill/.config/waybar/style.css
+[2025-09-18 11:11:17.830] [error] style.css:23:13'transform' is not a valid property name
+[2025-09-18 11:14:55.232] [info] Using configuration file /home/vibewill/.config/waybar/config.jsonc
+[2025-09-18 11:14:55.236] [info] Discovered appearance 'dark'
+[2025-09-18 11:14:55.236] [info] Using CSS file /home/vibewill/.config/waybar/style.css
+[2025-09-18 11:14:55.237] [error] style.css:23:13'transform' is not a valid property name

@@ -5,7 +5,7 @@
   "margin-left": 10,
   "margin-right": 10,
 
-  "modules-left": ["hyprland/workspaces", "hyprland/window", "custom/media-player", "custom/background-apps"],
+  "modules-left": ["hyprland/workspaces", "custom/active-app", "hyprland/window", "custom/media-player", "custom/background-apps"],
   "modules-center": ["clock"],
   "modules-right": [
     "custom/cava",
@@ -29,10 +29,28 @@
 
 
   "hyprland/workspaces": {
-    "format": "{id}",
+    "format": "{id} {windows}",
+    "format-window-separator": "",
+    "window-rewrite-default": "",
+    "window-rewrite": {
+      "class<Google-chrome>": "🌐",
+      "class<dev.warp.Warp>": "💻",
+      "class<kitty>": "💻",
+      "class<com.tibia.client>": "⚔️",
+      "class<org.kde.dolphin>": "📁",
+      "class<steam>": "🎮",
+      "class<discord>": "💬",
+      "class<spotify>": "🎵",
+      "class<code>": "⚙️",
+      "class<obs>": "📹",
+      "class<gimp>": "🎨",
+      "class<vlc>": "📺",
+      "class<telegram>": "✈️",
+      "class<thunderbird>": "📧",
+      "class<elisa>": "🎵"
+    },
     "on-click": "hyprctl dispatch workspace {id}",
     "all-outputs": true,
-    "swap-icon-label": false,
     "persistent_workspaces": {
       "*": [1, 2, 3, 4, 5]
     },
@@ -129,5 +147,15 @@
     "escape": true,
     "on-click": "~/.config/waybar/scripts/background-apps.sh click",
     "signal": 8
+  },
+
+  "custom/active-app": {
+    "exec": "~/.config/waybar/scripts/active-app-icon.sh",
+    "format": "{}",
+    "interval": 1,
+    "tooltip": true,
+    "return-type": "json",
+    "escape": true,
+    "signal": 1
   }
 }
