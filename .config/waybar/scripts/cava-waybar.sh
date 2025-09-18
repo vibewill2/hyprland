@@ -1,5 +1,56 @@
 #!/bin/bash
 
+# Script CAVA real para waybar
+# Captura áudio da saída padrão do sistema
+
+CONFIG_FILE="$HOME/.config/waybar/cava_config"
+
+# Verificar se CAVA está disponível
+if ! command -v cava >/dev/null 2>&1; then
+    echo "♪ CAVA not found"
+    exit 1
+fi
+
+# Função para converter números CAVA em barras
+convert_to_bars() {
+    local input="$1"
+    local bars=""
+    
+    # Converte cada número em uma barra correspondente
+    for char in $(echo "$input" | sed 's/./& /g'); do
+        if [[ "$char" =~ [0-7] ]]; then
+            case $char in
+                0) bars+="▁" ;;
+                1) bars+="▂" ;;
+                2) bars+="▃" ;;
+                3) bars+="▄" ;;
+                4) bars+="▅" ;;
+                5) bars+="▆" ;;
+                6) bars+="▇" ;;
+                7) bars+="█" ;;
+            esac
+        fi
+    done
+    
+    echo "$bars"
+}
+
+# Executar CAVA e processar saída
+cava -p "$CONFIG_FILE" 2>/dev/null | while IFS= read -r line; do
+    if [ -n "$line" ]; then
+        bars=$(convert_to_bars "$line")
+        if [ -n "$bars" ]; then
+            echo "♪ $bars"
+        else
+            echo "♪ ▁▁▁▁▁▁▁▁"
+        fi
+    else
+        echo "♪ ▁▁▁▁▁▁▁▁"
+    fi
+done
+
+#!/bin/bash
+
 # Script otimizado do CAVA para waybar
 # Versão melhorada com tratamento de erros
 

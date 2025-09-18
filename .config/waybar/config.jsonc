@@ -103,9 +103,9 @@
   },
 
   "custom/cava": {
-    "exec": "~/.config/waybar/scripts/volume-reactive.sh",
+    "exec": "~/.config/waybar/scripts/cava-waybar.sh",
     "format": "{}",
-    "tooltip": "Visualizador reativo ao volume",
+    "tooltip": "Visualizador de áudio CAVA",
     "restart-interval": 1
   },
 

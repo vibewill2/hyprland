@@ -160,3 +160,45 @@ ok
 Error in changeworkspace, invalid value
 Error in changeworkspace, invalid value
 Error in changeworkspace, invalid value
+No player could handle this command
+ok
+ok
+Error in changeworkspace, invalid value
+Error in changeworkspace, invalid value
+ok
+ok
+No player could handle this command
+ok
+Error in changeworkspace, invalid value
+Error in changeworkspace, invalid value
+Error in changeworkspace, invalid value
+ok
+
+(wofi:1113954): Gtk-WARNING **: 01:31:23.730: Theme parsing error: <data>:5:19: 'backdrop-filter' is not a valid property name
+
+(wofi:1113954): Gtk-WARNING **: 01:31:23.730: Theme parsing error: <data>:16:17: No property named 'transform'
+
+(wofi:1113954): Gtk-WARNING **: 01:31:23.730: Theme parsing error: <data>:20:17: No property named 'transform'
+
+(wofi:1113954): Gtk-WARNING **: 01:31:23.730: Theme parsing error: <data>:77:17: No property named 'transform'
+
+(wofi:1113954): Gtk-WARNING **: 01:31:23.730: Theme parsing error: <data>:81:17: No property named 'transform'
+
+(wofi:1113954): Gtk-WARNING **: 01:31:23.730: Theme parsing error: <data>:88:13: 'transform' is not a valid property name
+
+(wofi:1113954): Gtk-WARNING **: 01:31:23.730: Theme parsing error: <data>:95:13: 'transform' is not a valid property name
+
+(wofi:1113954): Gtk-WARNING **: 01:31:23.730: Theme parsing error: <data>:116:17: No property named 'transform'
+
+(wofi:1113954): Gtk-WARNING **: 01:31:23.730: Theme parsing error: <data>:120:17: No property named 'transform'
+
+(wofi:1113954): Gtk-CRITICAL **: 01:31:23.763: gtk_widget_set_size_request: assertion 'height >= -1' failed
+Gdk-Message: 01:31:26.191: Error reading events from display: Pipe quebrado
+[2025-09-18 10:59:51.750] [info] Using configuration file /home/vibewill/.config/waybar/config.jsonc
+[2025-09-18 10:59:51.755] [info] Discovered appearance 'dark'
+[2025-09-18 10:59:51.755] [info] Using CSS file /home/vibewill/.config/waybar/style.css
+[2025-09-18 10:59:51.761] [info] Hyprland IPC starting
+[2025-09-18 10:59:51.762] [info] Loading persistent workspaces from Hyprland workspace rules
+[2025-09-18 10:59:51.763] [warning] 'swap-icon-label' must be a bool.
+[2025-09-18 10:59:51.777] [warning] No batteries.
+[2025-09-18 10:59:51.930] [info] Bar configured (width: 1380, height: 32) for output: HDMI-A-1
