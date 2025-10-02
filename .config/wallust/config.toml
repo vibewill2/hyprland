@@ -1,7 +1,0 @@
-[config]
-backend = "pywal"   # ou "dark" / "light"
-setter = "swww"
-wallpaper_dir = "~/Imagens/wallpapers"
-
-[templates]
-kitty = "~/.config/kitty/wallust.conf"
