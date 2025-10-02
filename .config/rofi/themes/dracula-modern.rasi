@@ -1,0 +1,266 @@
+/*
+ * Rofi Theme: Dracula Modern
+ * Combinado com o tema da barra Qtile
+ * Inspirado no Material Design com transparência
+ */
+
+configuration {
+    font: "JetBrainsMono Nerd Font 12";
+    show-icons: true;
+    icon-theme: "Papirus-Dark";
+    display-drun: "  Apps";
+    display-run: "  Run";
+    display-window: "  Windows";
+    display-Network: " 直 Network";
+    drun-display-format: "{icon} {name}";
+    disable-history: false;
+    hide-scrollbar: true;
+    sidebar-mode: false;
+}
+
+* {
+    /* Cores do tema Dracula */
+    bg: #282a36;
+    bg-alt: #44475a;
+    fg: #f8f8f2;
+    fg-alt: #6272a4;
+    
+    red: #ff5555;
+    green: #50fa7b;
+    yellow: #f1fa8c;
+    blue: #bd93f9;
+    magenta: #ff79c6;
+    cyan: #8be9fd;
+    
+    /* Transparências */
+    bg-transparent: rgba(40, 42, 54, 0.95);
+    bg-selected: rgba(68, 71, 90, 0.8);
+    bg-hover: rgba(98, 114, 164, 0.3);
+    
+    /* Configurações gerais */
+    border-colour: @blue;
+    handle-colour: @blue;
+    background-colour: transparent;
+    foreground-colour: @fg;
+    alternate-background: @bg-hover;
+    normal-background: transparent;
+    normal-foreground: @fg;
+    urgent-background: @red;
+    urgent-foreground: @fg;
+    active-background: @green;
+    active-foreground: @fg;
+    selected-normal-background: @bg-selected;
+    selected-normal-foreground: @cyan;
+    selected-urgent-background: @red;
+    selected-urgent-foreground: @fg;
+    selected-active-background: @green;
+    selected-active-foreground: @fg;
+    alternate-normal-background: transparent;
+    alternate-normal-foreground: @fg;
+    alternate-urgent-background: transparent;
+    alternate-urgent-foreground: @red;
+    alternate-active-background: transparent;
+    alternate-active-foreground: @green;
+}
+
+window {
+    transparency: "real";
+    location: center;
+    anchor: center;
+    fullscreen: false;
+    width: 600px;
+    height: 500px;
+    x-offset: 0px;
+    y-offset: 0px;
+
+    enabled: true;
+    margin: 0px;
+    padding: 0px;
+    border: 2px solid;
+    border-radius: 16px;
+    border-color: @border-colour;
+    cursor: "default";
+    background-color: @bg-transparent;
+}
+
+mainbox {
+    enabled: true;
+    spacing: 10px;
+    margin: 0px;
+    padding: 20px;
+    border: 0px solid;
+    border-radius: 0px 0px 0px 0px;
+    border-color: @border-colour;
+    background-color: transparent;
+    children: [ "inputbar", "message", "listview" ];
+}
+
+inputbar {
+    enabled: true;
+    spacing: 10px;
+    margin: 0px 0px 15px 0px;
+    padding: 15px;
+    border: 0px solid;
+    border-radius: 12px;
+    border-color: @border-colour;
+    background-color: @bg-alt;
+    text-color: @fg;
+    children: [ "prompt", "textbox-prompt-colon", "entry" ];
+}
+
+prompt {
+    enabled: true;
+    background-color: transparent;
+    text-color: @blue;
+}
+
+textbox-prompt-colon {
+    enabled: true;
+    padding: 5px 0px;
+    expand: false;
+    str: "";
+    background-color: transparent;
+    text-color: @fg-alt;
+}
+
+entry {
+    enabled: true;
+    padding: 5px 0px;
+    background-color: transparent;
+    text-color: @fg;
+    cursor: text;
+    placeholder: "Pesquisar aplicativos...";
+    placeholder-color: @fg-alt;
+}
+
+listview {
+    enabled: true;
+    columns: 1;
+    lines: 8;
+    cycle: true;
+    dynamic: true;
+    scrollbar: false;
+    layout: vertical;
+    reverse: false;
+    fixed-height: true;
+    fixed-columns: true;
+    
+    spacing: 5px;
+    margin: 0px;
+    padding: 0px;
+    border: 0px solid;
+    border-radius: 0px;
+    border-color: @border-colour;
+    background-color: transparent;
+    text-color: @fg;
+    cursor: "default";
+}
+
+scrollbar {
+    handle-width: 5px ;
+    handle-color: @handle-colour;
+    border-radius: 10px;
+    background-color: @bg-alt;
+}
+
+element {
+    enabled: true;
+    spacing: 10px;
+    margin: 0px;
+    padding: 12px;
+    border: 0px solid;
+    border-radius: 10px;
+    border-color: @border-colour;
+    background-color: transparent;
+    text-color: @fg;
+    cursor: pointer;
+}
+
+element normal.normal {
+    background-color: @normal-background;
+    text-color: @normal-foreground;
+}
+
+element normal.urgent {
+    background-color: @urgent-background;
+    text-color: @urgent-foreground;
+}
+
+element normal.active {
+    background-color: @active-background;
+    text-color: @active-foreground;
+}
+
+element selected.normal {
+    background-color: @selected-normal-background;
+    text-color: @selected-normal-foreground;
+    border: 1px solid;
+    border-color: @cyan;
+}
+
+element selected.urgent {
+    background-color: @selected-urgent-background;
+    text-color: @selected-urgent-foreground;
+}
+
+element selected.active {
+    background-color: @selected-active-background;
+    text-color: @selected-active-foreground;
+}
+
+element alternate.normal {
+    background-color: @alternate-normal-background;
+    text-color: @alternate-normal-foreground;
+}
+
+element alternate.urgent {
+    background-color: @alternate-urgent-background;
+    text-color: @alternate-urgent-foreground;
+}
+
+element alternate.active {
+    background-color: @alternate-active-background;
+    text-color: @alternate-active-foreground;
+}
+
+element-icon {
+    background-color: transparent;
+    text-color: inherit;
+    size: 28px;
+    cursor: inherit;
+}
+
+element-text {
+    background-color: transparent;
+    text-color: inherit;
+    highlight: inherit;
+    cursor: inherit;
+    vertical-align: 0.5;
+    horizontal-align: 0.0;
+}
+
+/*****----- Message -----*****/
+message {
+    enabled: true;
+    margin: 0px;
+    padding: 0px;
+    border: 0px solid;
+    border-radius: 0px 0px 0px 0px;
+    border-color: @border-colour;
+    background-color: transparent;
+    text-color: @fg;
+}
+
+textbox {
+    padding: 15px;
+    border: 0px solid;
+    border-radius: 10px;
+    border-color: @border-colour;
+    background-color: @bg-alt;
+    text-color: @fg;
+    vertical-align: 0.5;
+    horizontal-align: 0.0;
+    highlight: none;
+    blink: true;
+    markup: true;
+}

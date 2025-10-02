@@ -1,0 +1,83 @@
+/*
+ * Rofi Theme: Minimal Glass
+ * Design ultra-limpo com transparência
+ */
+
+configuration {
+    font: "JetBrainsMono Nerd Font 11";
+    show-icons: true;
+    display-drun: "";
+    display-run: "";
+    display-window: "";
+    drun-display-format: "{name}";
+    hide-scrollbar: true;
+    sidebar-mode: false;
+}
+
+* {
+    bg: rgba(40, 42, 54, 0.9);
+    fg: #f8f8f2;
+    selected: rgba(189, 147, 249, 0.3);
+    border: #bd93f9;
+    
+    background-color: transparent;
+    text-color: @fg;
+}
+
+window {
+    width: 500px;
+    height: 400px;
+    border: 1px solid;
+    border-color: @border;
+    border-radius: 20px;
+    background-color: @bg;
+    location: center;
+    anchor: center;
+}
+
+mainbox {
+    padding: 25px;
+    spacing: 15px;
+    children: ["inputbar", "listview"];
+}
+
+inputbar {
+    padding: 15px;
+    border-radius: 15px;
+    background-color: rgba(68, 71, 90, 0.5);
+    children: ["entry"];
+}
+
+entry {
+    background-color: transparent;
+    placeholder: "Search...";
+    placeholder-color: rgba(248, 248, 242, 0.5);
+    cursor: text;
+}
+
+listview {
+    lines: 7;
+    spacing: 5px;
+    scrollbar: false;
+}
+
+element {
+    padding: 12px 15px;
+    border-radius: 12px;
+    background-color: transparent;
+    spacing: 10px;
+}
+
+element selected {
+    background-color: @selected;
+    border: 1px solid;
+    border-color: @border;
+}
+
+element-icon {
+    size: 24px;
+}
+
+element-text {
+    vertical-align: 0.5;
+}

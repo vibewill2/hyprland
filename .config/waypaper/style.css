@@ -1,0 +1,32 @@
+/* CSS personalizado para waypaper com interface mais espaçosa */
+
+/* Janela principal - tamanho maior para melhor visualização */
+window {
+    min-width: 800px;
+    min-height: 600px;
+}
+
+/* Container com scroll - altura maior para mostrar mais wallpapers */
+scrolledwindow {
+    min-height: 450px;
+}
+
+/* Espaçamento maior do flowbox */
+flowbox {
+    margin: 20px;
+}
+
+/* Espaçamento maior dos itens */
+flowboxchild {
+    margin: 8px;
+    padding: 8px;
+}
+
+/* Botões dos wallpapers maiores */
+button {
+    min-width: 180px;
+    min-height: 120px;
+    margin: 8px;
+    padding: 8px;
+    border-radius: 8px;
+}
