@@ -1,3 +1,4 @@
+
 @define-color bg #2E3440;
 @define-color fg #D8DEE9;
 @define-color accent #88C0D0;
@@ -44,6 +45,7 @@ window#waybar {
 #clock,
 #network,
 #pulseaudio,
+#microphone,
 #battery,
 #tray,
 #window {
@@ -62,6 +64,16 @@ window#waybar {
 
 #pulseaudio.muted {
   color: @urgent;
+}
+
+/* 🎙️ Microfone */
+#microphone {
+  color: @accent;
+}
+
+#microphone.muted {
+  color: @urgent;
+  opacity: 0.8;
 }
 
 /* Rede */
@@ -91,4 +103,3 @@ tooltip {
 #tray > .item {
   padding: 0 6px;
 }
-
