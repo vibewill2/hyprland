@@ -1,161 +1,65 @@
 {
   "layer": "top",
   "position": "top",
-  "height": 32,
-  "margin-left": 10,
-  "margin-right": 10,
-
-  "modules-left": ["hyprland/workspaces", "custom/active-app", "hyprland/window", "custom/media-player", "custom/background-apps"],
+  "height": 30,
+  "margin": 5,
+  "spacing": 10,
+  "modules-left": ["hyprland/workspaces", "hyprland/window"],
   "modules-center": ["clock"],
-  "modules-right": [
-    "custom/cava",
-    "custom/espaco",
-    "pulseaudio",
-    "custom/mic",
-    "custom/espaco",
-    "network",
-    "custom/espaco",
-    "cpu",
-    "custom/espaco",
-    "memory",
-    "custom/espaco",
-    "custom/waybar-restart",
-    "custom/espaco",
-    "battery",
-    "custom/espaco",
-    "custom/powermenu",
-    "custom/color-toggle"
-  ],
-
+  "modules-right": ["network", "pulseaudio", "battery", "tray"],
 
   "hyprland/workspaces": {
-    "format": "{id} {windows}",
-    "format-window-separator": "",
-    "window-rewrite-default": "",
-    "window-rewrite": {
-      "class<Google-chrome>": "🌐",
-      "class<dev.warp.Warp>": "💻",
-      "class<kitty>": "💻",
-      "class<com.tibia.client>": "⚔️",
-      "class<org.kde.dolphin>": "📁",
-      "class<steam>": "🎮",
-      "class<discord>": "💬",
-      "class<spotify>": "🎵",
-      "class<code>": "⚙️",
-      "class<obs>": "📹",
-      "class<gimp>": "🎨",
-      "class<vlc>": "📺",
-      "class<telegram>": "✈️",
-      "class<thunderbird>": "📧",
-      "class<elisa>": "🎵"
+    "disable-scroll": true,
+    "format": "{icon}",
+    "format-icons": {
+      "1": "",
+      "2": "",
+      "3": "",
+      "4": "",
+      "5": "",
+      "default": ""
     },
-    "on-click": "hyprctl dispatch workspace {id}",
-    "all-outputs": true,
-    "persistent_workspaces": {
-      "*": [1, 2, 3, 4, 5]
-    },
-    "disable-scroll": false,
-    "sort-by-number": true,
-    "show-empty": true
+    "persistent-workspaces": {
+      "*": 5
+    }
   },
 
   "hyprland/window": {
-    "format": "{title}"
+    "format": "{}",
+    "max-length": 40,
+    "separate-outputs": true
   },
 
   "clock": {
-    "format": "{:%d/%m/%Y %H:%M}",
-    "tooltip-format": "<big>{:%A, %d de %B de %Y}</big>"
-  },
-
-  "pulseaudio": {
-    "format": "{volume}% "
-  },
-
-  "custom/mic": {
-    "exec": "~/.config/waybar/scripts/mic-volume.sh",
-    "interval": 5,
-    "tooltip": "Microfone",
-    "on-click": "pactl set-source-volume @DEFAULT_SOURCE@ +5%",
-    "on-click-middle": "pactl set-source-volume @DEFAULT_SOURCE@ 0%",
-    "on-click-right": "pactl set-source-volume @DEFAULT_SOURCE@ -5%"
+    "format": "  {:%H:%M    %d/%m}",
+    "tooltip-format": "{:%A, %d de %B de %Y}"
   },
 
   "network": {
-    "format-wifi": " {essid}",
-    "format-ethernet": " {ipaddr}",
-    "format-disconnected": ""
+    "format-wifi": "  {essid}",
+    "format-ethernet": "󰈀  {ifname}",
+    "format-disconnected": "  sem rede",
+    "tooltip-format": "{ifname} → {ipaddr}"
   },
 
-  "cpu": {
-    "format": " {usage}%",
-    "tooltip": false
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "",
+    "format-icons": {
+      "default": ["", "", ""]
+    },
+    "on-click": "pavucontrol"
   },
 
-  "memory": {
-    "format": " {percentage}%",
-    "tooltip": false
+  "battery": {
+    "format": "{icon} {capacity}%",
+    "format-icons": ["󰁺", "󰁼", "󰁿", "󰂁", "󰁹"],
+    "format-charging": " {capacity}%",
+    "tooltip-format": "{timeTo} restantes"
   },
 
-  "custom/waybar-restart": {
-    "format": "",
-    "on-click": "killall waybar && waybar &"
-  },
-
-  "custom/espaco": {
-    "format": " "
-  },
-
-  "custom/powermenu": {
-    "format": "⏻",
-    "tooltip": "Menu de Energia",
-    "on-click": "~/.config/waybar/scripts/powermenu.sh"
-  },
-
-  "custom/color-toggle": {
-    "exec": "echo '\uf1fc'",
-    "interval": 0,
-    "format": "{text}",
-    "tooltip": "Muda cor da barra",
-    "on-click": "~/.config/waybar/scripts/color_toggle.sh"
-  },
-
-  "custom/cava": {
-    "exec": "~/.config/waybar/scripts/cava-waybar.sh",
-    "format": "{}",
-    "tooltip": "Visualizador de áudio CAVA",
-    "restart-interval": 1
-  },
-
-  "custom/media-player": {
-    "exec": "~/.config/waybar/scripts/media-player.sh",
-    "format": "{}",
-    "interval": 2,
-    "tooltip": "Player de música - Clique para abrir player",
-    "on-click": "~/.config/waybar/scripts/media-player.sh open",
-    "on-click-right": "playerctl next",
-    "on-click-middle": "playerctl previous",
-    "escape": true
-  },
-
-  "custom/background-apps": {
-    "exec": "~/.config/waybar/scripts/background-apps.sh",
-    "format": "{}",
-    "interval": 5,
-    "tooltip": true,
-    "return-type": "json",
-    "escape": true,
-    "on-click": "~/.config/waybar/scripts/background-apps.sh click",
-    "signal": 8
-  },
-
-  "custom/active-app": {
-    "exec": "~/.config/waybar/scripts/active-app-icon.sh",
-    "format": "{}",
-    "interval": 1,
-    "tooltip": true,
-    "return-type": "json",
-    "escape": true,
-    "signal": 1
+  "tray": {
+    "icon-size": 18,
+    "spacing": 10
   }
 }
