@@ -1,143 +1,94 @@
-#waybar {
-    border-radius: 15px;
-    background: #000108;
-    opacity: 0.9;
-    border-bottom: 2px solid #5888A3;
-    padding: 5px;
+@define-color bg #2E3440;
+@define-color fg #D8DEE9;
+@define-color accent #88C0D0;
+@define-color urgent #BF616A;
+@define-color hover #4C566A;
+
+* {
+  font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free";
+  font-size: 13px;
+  color: @fg;
 }
 
-/* --- Workspaces --- */
+window#waybar {
+  background-color: alpha(@bg, 0.65); /* Transparência elegante */
+  border-radius: 12px;
+  border: 1px solid alpha(@accent, 0.3);
+  padding: 6px 10px;
+  margin: 4px 8px;
+}
+
+/* Workspaces */
 #workspaces {
-    /* animação removida (não suportada) */
+  margin: 0 6px;
 }
 
 #workspaces button {
-    padding: 0 12px;
-    margin: 0 2px;
-    border-radius: 15px;
-    color: #EDF1F3;
-    background: #9A9EA0;
-    border: none;
-    opacity: 0.7;
+  border-radius: 10px;
+  padding: 0 10px;
+  background: transparent;
+  transition: background 0.2s, color 0.2s;
+}
+
+#workspaces button.active {
+  background-color: @accent;
+  color: #2E3440;
+  font-weight: bold;
 }
 
 #workspaces button:hover {
-    background: #9A9EA0;
-    opacity: 0.9;
-    box-shadow: 0 4px 15px #5888A3;
+  background-color: @hover;
 }
 
-/* Workspace ativa */
-#workspaces button.active {
-    background: #5888A3;
-    box-shadow: 
-        0 0 20px #5888A3,
-        0 0 40px #5888A3;
-    opacity: 1;
-    color: #000108;
-}
-
-/* Workspace ocupada */
-#workspaces button.occupied {
-    background: #9A9EA0;
-    opacity: 0.8;
-    box-shadow: 0 2px 8px #5888A3;
-}
-
-/* Workspace urgente */
-#workspaces button.urgent {
-    background: #1E4358;
-    box-shadow: 0 0 15px #1E4358;
-}
-
-/* cores dinâmicas para workspaces */
-#workspaces button:nth-child(1) { color: #1E4358; }   /* vermelho */
-#workspaces button:nth-child(2) { color: #50644F; }   /* verde */
-#workspaces button:nth-child(3) { color: #5888A3; }   /* azul */
-#workspaces button:nth-child(4) { color: #7E7273; }   /* amarelo */
-#workspaces button:nth-child(5) { color: #E8B9A5; }   /* magenta */
-#workspaces button:nth-child(6) { color: #CBD6DC; }   /* ciano */
-
-/* --- Módulos arredondados --- */
-#hyprland-window,
+/* Módulos */
 #clock,
-#pulseaudio,
-#custom-mic,
 #network,
-#cpu,
-#memory,
-#custom-waybar-restart,
-#custom-powermenu,
-#custom-color-toggle,
-#custom-brush,
-#custom-cava,
-#custom-media-player,
-#custom-background-apps,
-#custom-active-app {
-    padding: 0 10px;
-    margin: 0 4px;
-    border-radius: 15px;
-    background: #9A9EA0;
-    color: #EDF1F3;
-    opacity: 0.8;
+#pulseaudio,
+#battery,
+#tray,
+#window {
+  padding: 0 10px;
 }
 
-/* cores dinâmicas para módulos */
-#hyprland-window { color: #1E4358; }        /* vermelho */
-#clock { color: #50644F; }                  /* verde */
-#pulseaudio { color: #5888A3; }             /* azul */
-#custom-mic { color: #7E7273; }             /* amarelo */
-#network { color: #E8B9A5; }                /* magenta */
-#cpu { color: #CBD6DC; }                    /* ciano */
-#memory { color: #E8B9A5; }                /* ciano claro */
-#custom-waybar-restart { color: #5888A3; } /* rosa */
-#custom-powermenu {
-    color: #1E4358;
-    background: #9A9EA0;
-    font-size: 18px;
-    font-weight: bold;
-    opacity: 0.8;
-}
-#custom-color-toggle { color: #7E7273; }    /* amarelo */
-#custom-brush { color: #E8B9A5; }           /* magenta */
-#custom-cava { color: #50644F; }           /* verde claro */
-#custom-media-player { color: #1E4358; }    /* vermelho claro */
-#custom-background-apps { color: #7E7273; } /* amarelo claro */
-#custom-active-app { color: #CBD6DC; }      /* ciano claro */
-
-/* hover módulos */
-#hyprland-window:hover,
-#clock:hover,
-#pulseaudio:hover,
-#custom-mic:hover,
-#network:hover,
-#cpu:hover,
-#memory:hover,
-#custom-waybar-restart:hover,
-#custom-powermenu:hover,
-#custom-color-toggle:hover,
-#custom-brush:hover,
-#custom-cava:hover,
-#custom-media-player:hover,
-#custom-background-apps:hover,
-#custom-active-app:hover {
-    background: #DCE2E5;
-    border-radius: 15px;
-    box-shadow: 0 2px 8px #5888A3;
-    opacity: 1;
+#window {
+  font-weight: 500;
+  color: @accent;
 }
 
-/* Forçar cor vermelha no Powermenu */
-window#waybar #custom-powermenu,
-#waybar #custom-powermenu,
-.modules-right #custom-powermenu {
-    color: #1E4358;
-    font-size: 18px;
+/* Volume */
+#pulseaudio {
+  color: @fg;
 }
 
-/* Estilo especial para ícone da aplicação ativa */
-#custom-active-app {
-    border: 2px solid #CBD6DC;
-    font-size: 18px;
-    font-weight: bold;
+#pulseaudio.muted {
+  color: @urgent;
 }
+
+/* Rede */
+#network.disconnected {
+  color: @urgent;
+}
+
+/* Bateria */
+#battery.warning,
+#battery.critical {
+  color: @urgent;
+}
+
+/* Tooltip */
+tooltip {
+  background: alpha(@bg, 0.85);
+  border: 1px solid @accent;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+
+/* Tray */
+#tray {
+  margin-right: 6px;
+}
+
+#tray > .item {
+  padding: 0 6px;
+}
+
