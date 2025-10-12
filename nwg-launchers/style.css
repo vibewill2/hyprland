@@ -1,0 +1,61 @@
+window {
+    background-color: rgba(46, 52, 64, 0.94); /* Nord dark background */
+    border-radius: 0px;
+    margin: 0px;
+    padding: 50px;
+}
+
+scroll {
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+    color: #d8dee9;
+    margin: 14px;
+    border-radius: 20px;
+    transition: 0.15s;
+}
+
+button:hover {
+    background-color: rgba(136, 192, 208, 0.25); /* Nord accent */
+    transform: scale(1.05);
+}
+
+button image {
+    min-width: 96px;
+    min-height: 96px;
+}
+
+label {
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 14px;
+    color: #eceff4;
+    margin-top: 8px;
+}
+
+/* Search bar */
+entry {
+    background-color: rgba(59, 66, 82, 0.8);
+    border: none;
+    border-radius: 12px;
+    color: #eceff4;
+    font-size: 15px;
+    padding: 8px 12px;
+    margin: 0 20px 20px 20px;
+}
+
+entry:focus {
+    background-color: rgba(67, 76, 94, 0.9);
+}
+
+/* Scrollbars (sutil) */
+scrollbar {
+    background: transparent;
+}
+scrollbar slider {
+    background: rgba(136, 192, 208, 0.3);
+    border-radius: 5px;
+}

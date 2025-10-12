@@ -1,0 +1,21 @@
+]menu_width=100%
+menu_height=100%
+hide_on_startup=false
+centered=true
+margin=0
+
+# Exibição
+show_names=true
+show_generic=false
+show_categories=false
+show_search=true
+icon_size=96
+
+# Grid layout
+columns=8
+rows=5
+
+# Outras opções
+terminal=alacritty
+editor=nano
+

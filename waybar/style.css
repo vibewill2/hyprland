@@ -1,0 +1,118 @@
+@define-color bg #2E3440;
+@define-color fg #D8DEE9;
+@define-color accent #88C0D0;
+@define-color urgent #BF616A;
+@define-color hover #4C566A;
+
+* {
+  font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free";
+  font-size: 13px;
+  color: @fg;
+}
+
+window#waybar {
+  background-color: alpha(@bg, 0.65); /* Transparência elegante */
+  border-radius: 12px;
+  border: 1px solid alpha(@accent, 0.3);
+  padding: 6px 10px;
+  margin: 4px 8px;
+}
+
+/* Workspaces */
+#workspaces {
+  margin: 0 6px;
+}
+
+#workspaces button {
+  border-radius: 10px;
+  padding: 0 10px;
+  background: transparent;
+  transition: background 0.2s, color 0.2s;
+}
+
+#workspaces button.active {
+  background-color: @accent;
+  color: #2E3440;
+  font-weight: bold;
+}
+
+#workspaces button:hover {
+  background-color: @hover;
+}
+
+/* Módulos */
+#clock,
+#network,
+#pulseaudio,
+#microphone,
+#battery,
+#tray,
+#window,
+#custom-power {
+  padding: 0 10px;
+}
+
+/* Janela */
+#window {
+  font-weight: 500;
+  color: @accent;
+}
+
+/* Volume */
+#pulseaudio {
+  color: @fg;
+}
+
+#pulseaudio.muted {
+  color: @urgent;
+}
+
+/* 🎙️ Microfone */
+#microphone {
+  color: @accent;
+}
+
+#microphone.muted {
+  color: @urgent;
+  opacity: 0.8;
+}
+
+/* Rede */
+#network.disconnected {
+  color: @urgent;
+}
+
+/* Bateria */
+#battery.warning,
+#battery.critical {
+  color: @urgent;
+}
+
+/* Tooltip */
+tooltip {
+  background: alpha(@bg, 0.85);
+  border: 1px solid @accent;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+
+/* Tray */
+#tray {
+  margin-right: 6px;
+}
+
+#tray > .item {
+  padding: 0 6px;
+}
+
+/* ⚡ Botão Power (nwg-bar) */
+#custom-power {
+  color: @urgent;
+  transition: background 0.25s ease, color 0.25s ease;
+  border-radius: 8px;
+}
+
+#custom-power:hover {
+  background: @hover;
+  color: @accent;
+}
