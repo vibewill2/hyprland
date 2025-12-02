@@ -8,7 +8,7 @@ sudo dnf copr enable solopasha/hyprland
 sudo dnf copr enable tywil04/ly
 sudo dnf copr enable relativesure/all-packages
 sudo dnf copr enable kylegospo/grub-btrfs
-
+rpm-ostree rebase ostree-image-signed:docker://ghcr.io/wayblueorg/wayblue-<desktop>:<tag>
 bash -c "$(curl -sLo- https://superfile.netlify.app/install.sh)" 
 git clone https://aur.archlinux.org/yay.git
 dejavu-sans-mono-fonts
