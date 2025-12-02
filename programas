@@ -12,3 +12,4 @@ rpm-ostree rebase ostree-image-signed:docker://ghcr.io/wayblueorg/wayblue-<deskt
 bash -c "$(curl -sLo- https://superfile.netlify.app/install.sh)" 
 git clone https://aur.archlinux.org/yay.git
 dejavu-sans-mono-fonts
+rpm-ostree rebase ostree-image-signed:docker://ghcr.io/wayblueorg/wayblue-hyprland:latest
