@@ -1,9 +1,9 @@
 {
   "layer": "top",
   "position": "top",
-  "height": 30,
-  "margin": 5,
-  "spacing": 10,
+  "height": 40,
+  "margin": 6,
+  "spacing": 8,
 
   "modules-left": ["hyprland/workspaces", "hyprland/window"],
   "modules-center": ["clock"],
@@ -39,40 +39,47 @@
   },
 
   "clock": {
-    "format": "  {:%H:%M    %d/%m}",
+    "format": "󰥔  {0:%H:%M}  󰃭  {0:%d/%m}",
     "tooltip-format": "{:%A, %d de %B de %Y}"
   },
 
   "network": {
-    "format-wifi": "  {essid}",
+    "format-wifi": "󰤨  {essid}",
     "format-ethernet": "󰈀  {ifname}",
-    "format-disconnected": "  sem rede",
+    "format-disconnected": "󰤭  sem rede",
     "tooltip-format": "{ifname} → {ipaddr}"
   },
 
   "pulseaudio": {
     "format": "{icon} {volume}%",
-    "format-muted": "",
+    "format-muted": "󰖁",
     "format-icons": {
-      "default": ["", "", ""]
+      "default": ["󰕿", "󰖀", "󰕾"]
     },
+    "scroll-step": 5,
     "on-click": "pavucontrol"
   },
 
   "pulseaudio#microphone": {
     "source": true,
     "format": "{icon} {volume}%",
-    "format-muted": "",
+    "format-muted": "󰍭",
     "format-icons": {
-      "default": [""]
+      "default": ["󰍬"]
     },
+    "scroll-step": 5,
     "on-click": "pavucontrol"
   },
 
   "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
     "format": "{icon} {capacity}%",
     "format-icons": ["󰁺", "󰁼", "󰁿", "󰂁", "󰁹"],
-    "format-charging": " {capacity}%",
+    "format-charging": "󰂄  {capacity}%",
+    "format-plugged": "󰚥  {capacity}%",
     "tooltip-format": "{timeTo} restantes"
   },
 
@@ -82,7 +89,7 @@
   },
 
   "custom/power": {
-    "format": "",
+    "format": "󰐥",
     "tooltip": "Menu de energia",
     "on-click": "nwg-bar",
     "interval": 0
