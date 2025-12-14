@@ -91,7 +91,7 @@
   "custom/power": {
     "format": "󰐥",
     "tooltip": "Menu de energia",
-    "on-click": "nwg-bar",
+    "on-click": "/home/vibewill/.config/waybar/scripts/power-menu.sh",
     "interval": 0
   }
 }
