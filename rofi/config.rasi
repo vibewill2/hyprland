@@ -1,0 +1,11 @@
+/* Config principal do Rofi */
+
+configuration {
+  modi: "drun,run,window";
+  matching: "fuzzy";
+  show-icons: true;
+  sort: true;
+  drun-display-format: "{name}";
+}
+
+@theme "~/.config/rofi/themes/modern-glass.rasi"

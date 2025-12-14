@@ -1,0 +1,134 @@
+/* Modern Glass Theme for Rofi (Catppuccin-like)
+   Save as: ~/.config/rofi/themes/modern-glass.rasi
+*/
+
+* {
+  base:          #11111b;
+  mantle:        #181825;
+  surface:       #313244;
+  surface2:      #45475a;
+  text:          #cdd6f4;
+  subtext:       #a6adc8;
+  accent:        #89b4fa;
+  red:           #f38ba8;
+
+  transparent:   rgba(0,0,0,0);
+
+  /* Ajuste o tamanho aqui se quiser */
+  font: "JetBrainsMono Nerd Font 12";
+}
+
+configuration {
+  show-icons: true;
+  icon-theme: "Papirus";
+  display-drun: "Apps";
+  display-run: "Run";
+  display-window: "Janelas";
+}
+
+window {
+  location: center;
+  anchor: center;
+  fullscreen: false;
+  width: 560px;
+
+  background-color: rgba(17,17,27,0.55);
+  border: 1px;
+  border-color: rgba(137,180,250,0.28);
+  border-radius: 18px;
+
+  padding: 18px;
+}
+
+mainbox {
+  background-color: @transparent;
+  spacing: 12px;
+}
+
+inputbar {
+  background-color: rgba(49,50,68,0.40);
+  border: 1px;
+  border-color: rgba(137,180,250,0.18);
+  border-radius: 14px;
+
+  padding: 10px 12px;
+  spacing: 10px;
+  children: [ prompt, entry ];
+}
+
+prompt {
+  background-color: @transparent;
+  text-color: @accent;
+}
+
+entry {
+  background-color: @transparent;
+  text-color: @text;
+  placeholder: "Buscar…";
+  placeholder-color: rgba(166,173,200,0.75);
+}
+
+message {
+  background-color: @transparent;
+}
+
+textbox {
+  background-color: @transparent;
+  text-color: @subtext;
+}
+
+listview {
+  background-color: @transparent;
+  lines: 8;
+  columns: 1;
+  fixed-height: false;
+  scrollbar: true;
+  spacing: 6px;
+}
+
+scrollbar {
+  background-color: @transparent;
+  handle-color: rgba(69,71,90,0.65);
+  handle-width: 8px;
+  border-radius: 10px;
+}
+
+element {
+  background-color: rgba(49,50,68,0.18);
+  border: 1px;
+  border-color: rgba(137,180,250,0.10);
+  border-radius: 14px;
+  padding: 10px 12px;
+}
+
+element-icon {
+  size: 22px;
+  background-color: @transparent;
+}
+
+element-text {
+  background-color: @transparent;
+  text-color: @text;
+}
+
+element selected {
+  background-color: rgba(137,180,250,0.22);
+  border-color: rgba(137,180,250,0.35);
+}
+
+element selected element-text {
+  text-color: @text;
+}
+
+element urgent {
+  border-color: rgba(243,139,168,0.35);
+}
+
+element urgent element-text {
+  text-color: @red;
+}
+
+/* Pequena “assinatura” no rodapé, opcional */
+footer {
+  background-color: @transparent;
+}
