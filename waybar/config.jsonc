@@ -3,7 +3,8 @@
   "position": "top",
   "height": 40,
   "margin": 6,
-  "spacing": 8,
+  "spacing": 6,
+  "border-radius": 16,
 
   "modules-left": ["hyprland/workspaces", "hyprland/window"],
   "modules-center": ["clock"],
@@ -27,71 +28,63 @@
       "5": "",
       "default": ""
     },
-    "persistent-workspaces": {
-      "*": 5
-    }
+    "persistent-workspaces": { "*": 5 },
+    "tooltip-format": "Área de trabalho {name}",
+    "class": "module"
   },
 
-  "hyprland/window": {
-    "format": "{}",
-    "max-length": 40,
-    "separate-outputs": true
-  },
+  "hyprland/window": { "format": "{}", "max-length": 40, "class": "module" },
 
   "clock": {
     "format": "󰥔  {0:%H:%M}  󰃭  {0:%d/%m}",
-    "tooltip-format": "{:%A, %d de %B de %Y}"
+    "tooltip-format": "{:%A, %d de %B de %Y}",
+    "class": "module"
   },
 
   "network": {
     "format-wifi": "󰤨  {essid}",
     "format-ethernet": "󰈀  {ifname}",
     "format-disconnected": "󰤭  sem rede",
-    "tooltip-format": "{ifname} → {ipaddr}"
+    "tooltip-format": "{ifname} → {ipaddr}",
+    "class": "module"
   },
 
   "pulseaudio": {
     "format": "{icon} {volume}%",
     "format-muted": "󰖁",
-    "format-icons": {
-      "default": ["󰕿", "󰖀", "󰕾"]
-    },
+    "format-icons": { "default": ["󰕿", "󰖀", "󰕾"] },
     "scroll-step": 5,
-    "on-click": "pavucontrol"
+    "on-click": "pavucontrol",
+    "class": "module"
   },
 
   "pulseaudio#microphone": {
     "source": true,
     "format": "{icon} {volume}%",
     "format-muted": "󰍭",
-    "format-icons": {
-      "default": ["󰍬"]
-    },
+    "format-icons": { "default": ["󰍬"] },
     "scroll-step": 5,
-    "on-click": "pavucontrol"
+    "on-click": "pavucontrol",
+    "class": "module"
   },
 
   "battery": {
-    "states": {
-      "warning": 30,
-      "critical": 15
-    },
+    "states": { "warning": 30, "critical": 15 },
     "format": "{icon} {capacity}%",
-    "format-icons": ["󰁺", "󰁼", "󰁿", "󰂁", "󰁹"],
+    "format-icons": ["󰁺","󰁼","󰁿","󰂁","󰁹"],
     "format-charging": "󰂄  {capacity}%",
     "format-plugged": "󰚥  {capacity}%",
-    "tooltip-format": "{timeTo} restantes"
+    "tooltip-format": "{timeTo} restantes",
+    "class": "module"
   },
 
-  "tray": {
-    "icon-size": 18,
-    "spacing": 10
-  },
+  "tray": { "icon-size": 20, "spacing": 6, "class": "module" },
 
   "custom/power": {
     "format": "󰐥",
     "tooltip": "Menu de energia",
     "on-click": "/home/vibewill/.config/waybar/scripts/power-menu.sh",
-    "interval": 0
+    "interval": 0,
+    "class": "module"
   }
 }

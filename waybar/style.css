@@ -1,182 +1,84 @@
-/*
-  Tema moderno “glass + pill”
-  - funciona bem com blur no compositor (opcional)
-  - módulos com pílulas e hover suave
-*/
+/* Waybar moderno, glass + pílulas + efeito Powerline visual */
 
-@define-color base   #11111b; /* fundo */
-@define-color mantle #181825; /* fundo secundário */
-@define-color surface #313244; /* cards */
-@define-color text   #cdd6f4;
-@define-color subtext #a6adc8;
-@define-color accent #89b4fa;
-@define-color green  #a6e3a1;
-@define-color yellow #f9e2af;
-@define-color red    #f38ba8;
-
+/* Fonte e cores base */
 * {
-  /* Font Awesome primeiro; se um caractere não existir nele (ex.: texto normal), cai no fallback */
   font-family: "Font Awesome 6 Free", "JetBrainsMono Nerd Font", "Symbols Nerd Font";
   font-size: 13px;
-  color: @text;
+  color: #cdd6f4;
 }
 
+/* Barra principal com gradiente (mais transparente ainda) */
 window#waybar {
-  background-color: alpha(@base, 0.35);
+  background: linear-gradient(90deg, rgba(17,17,27,0.50), rgba(24,24,37,0.50));
   border-radius: 16px;
-  border: 1px solid alpha(@accent, 0.18);
-  padding: 6px 10px;
+  border: 1px solid rgba(137,180,250,0.18);
+  padding: 6px 0;
   margin: 6px 10px;
-  box-shadow: 0 10px 28px alpha(#000000, 0.35);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.35);
 }
 
-/* Base visual para “pílulas” */
-#clock,
-#network,
-#pulseaudio,
-#pulseaudio.microphone,
-#microphone,
-#battery,
-#tray,
-#window,
-#custom-power {
-  margin: 4px 3px;
-  padding: 0 12px;
-  min-height: 26px;
+/* Pílulas módulos */
+.module {
+  padding: 0 16px;
+  min-height: 30px;
   border-radius: 12px;
-  background-color: alpha(@surface, 0.35);
-  border: 1px solid alpha(@accent, 0.10);
-  transition: background-color 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+  margin-left: -6px; /* simula Powerline sobreposição */
+  background-color: rgba(49,50,68,0.6);
+  border: 1px solid rgba(137,180,250,0.15);
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
-/* Mantém Font Awesome como padrão global, mas força uma fonte “de texto” no relógio
-   (FA às vezes não tem glifos/kerning para números e ':' e pode “sumir” o separador) */
-#clock,
-#clock label {
-  /* Força fonte “de texto” no relógio pra garantir o ':' e números */
-  font-family: "JetBrainsMono Nerd Font", "Symbols Nerd Font";
+/* Primeira pílula não sobrepõe nada */
+.module:first-child {
+  margin-left: 0;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
 }
 
-#clock:hover,
-#network:hover,
-#pulseaudio:hover,
-#pulseaudio.microphone:hover,
-#microphone:hover,
-#battery:hover,
-#tray:hover,
-#custom-power:hover {
-  background-color: alpha(@surface, 0.60);
-  border-color: alpha(@accent, 0.25);
+/* Última pílula arredonda a direita */
+.module:last-child {
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
 }
 
-/* Workspaces (grupo + botões) */
-#workspaces {
-  margin: 4px 3px;
-  padding: 2px;
-  border-radius: 12px;
-  background-color: alpha(@surface, 0.30);
-  border: 1px solid alpha(@accent, 0.10);
+/* Hover */
+.module:hover {
+  background-color: rgba(137,180,250,0.35);
+  color: #11111b;
 }
 
-#workspaces button {
-  margin: 0 2px;
-  padding: 0 10px;
-  min-height: 26px;
-  border-radius: 10px;
-  background: transparent;
-  color: @subtext;
-  transition: background-color 0.18s ease, color 0.18s ease;
-}
-
-#workspaces button:hover {
-  background-color: alpha(@surface, 0.60);
-  color: @text;
-}
-
+/* Workspaces ativos */
 #workspaces button.active {
-  background-color: alpha(@accent, 0.95);
-  color: @base;
+  background-color: rgba(137,180,250,0.95);
+  color: #11111b;
   font-weight: 700;
-  box-shadow: 0 6px 14px alpha(@accent, 0.25);
 }
 
-#workspaces button.urgent {
-  background-color: alpha(@red, 0.85);
-  color: @base;
-}
-
-/* Janela (título) */
-#window {
-  background-color: transparent;
-  border: 1px solid transparent;
-  color: @accent;
-  font-weight: 600;
-}
-
-/* Áudio */
-#pulseaudio.muted {
-  color: @red;
-}
-
-/* Microfone: tenta cobrir ambos os seletores (depende do Waybar) */
-#pulseaudio.microphone,
-#microphone {
-  color: @accent;
-}
-
+/* Áudio, rede, bateria */
+#network.disconnected { color: #f38ba8; }
+#pulseaudio.muted,
 #pulseaudio.microphone.muted,
-#microphone.muted {
-  color: @red;
-}
+#microphone.muted { color: #f38ba8; }
 
-/* Rede */
-#network.disconnected {
-  color: @red;
-}
-
-/* Bateria */
+#battery.warning { color: #f9e2af; }
+#battery.critical { color: #f38ba8; }
 #battery.charging,
-#battery.plugged {
-  color: @green;
-}
-
-#battery.warning {
-  color: @yellow;
-}
-
-#battery.critical {
-  color: @red;
-}
+#battery.plugged { color: #a6e3a1; }
 
 /* Tray */
-#tray {
-  padding: 0 10px;
-}
-
 #tray > .item {
-  padding: 0 6px;
   border-radius: 10px;
-}
-
-/* Power */
-#custom-power {
-  color: @red;
-  background-color: alpha(@surface, 0.25);
-}
-
-#custom-power:hover {
-  background-color: alpha(@red, 0.18);
-  border-color: alpha(@red, 0.35);
+  padding: 0 6px;
 }
 
 /* Tooltip */
 tooltip {
-  background: alpha(@mantle, 0.92);
-  border: 1px solid alpha(@accent, 0.25);
+  background: rgba(24,24,37,0.92);
+  border: 1px solid rgba(137,180,250,0.25);
   border-radius: 12px;
   padding: 8px 10px;
 }
 
 tooltip label {
-  color: @text;
+  color: #cdd6f4;
 }
