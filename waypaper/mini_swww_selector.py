@@ -1,17 +1,3 @@
-#!/usr/bin/env python3
-"""
-Mini seletor de wallpapers para swww com efeitos de transição
-Todas as imagens são aplicadas em TELA CHEIA automaticamente
-
-Teclas:
-- ← →: mover seleção entre os 3 itens
-- ↑ ↓: trocar o trio de wallpapers
-- Enter: aplicar o selecionado em tela cheia com efeito
-- T: alternar efeito de transição (fade, wipe, outer, random, wave, grow, center)
-- S: alternar velocidade da transição (rápida, normal, lenta, muito lenta, ultra lenta)
-- ESC: sair
-"""
-
 import tkinter as tk
 from tkinter import ttk
 from PIL import Image, ImageTk
@@ -21,8 +7,8 @@ import os
 from pathlib import Path
 import configparser
 
-THUMB_SIZE = (150, 95)  # miniaturas para caber na janela pequena
-WINDOW_SIZE = "650x240"  # janela pequena otimizada para tela cheia
+THUMB_SIZE = (150, 95)
+WINDOW_SIZE = "650x240"
 BG = "#1f1f1f"
 FG = "#e6e6e6"
 ACCENT = "#4a9eff"
@@ -30,76 +16,38 @@ ACCENT = "#4a9eff"
 class MiniSwwwSelector:
     def __init__(self, root):
         self.root = root
-        self.root.title("Mini swww: ←→ selec | ↑↓ trio | Enter aplica | T transição | S velocidade | ESC sai")
+        self.root.title("Mini Wallpaper Selector")
         self.root.configure(bg=BG)
         self.root.resizable(False, False)
 
-        # Estado
         self.wallpapers = self.get_wallpapers()
-        if not self.wallpapers:
-            self.wallpapers = []
         self.current_set = 0
         self.selected_index = 0
 
-        self.resize_modes = ['crop', 'crop', 'crop', 'crop']  # Sempre crop para tela cheia
-        self.resize_mode_names = ['Tela Cheia', 'Tela Cheia', 'Tela Cheia', 'Tela Cheia']
-        self.current_resize_mode = 0  # crop (tela cheia) sempre
-        
-        # Efeitos de transição
-        self.transition_effects = ['fade', 'wipe', 'outer', 'random', 'wave', 'grow', 'center']
-        self.transition_names = ['Fade', 'Wipe', 'Outer', 'Random', 'Wave', 'Grow', 'Center']
-        self.current_transition = 0  # fade por padrão
-        
-        # Velocidades de transição
-        self.transition_speeds = ['0.3', '0.6', '1.0', '1.5', '2.0']
-        self.transition_speed_names = ['Rápida', 'Normal', 'Lenta', 'Muito Lenta', 'Ultra Lenta']
-        self.current_speed = 1  # 0.6s por padrão
-
-        # Cache de thumbs para performance
         self.thumb_cache = {}
 
         self.setup_ui()
         self.load_wallpapers()
-        
-        # Centralizar janela após criar a UI
         self.center_window()
 
-        # Keybinds
         self.root.bind('<Left>', lambda e: self.navigate_left())
         self.root.bind('<Right>', lambda e: self.navigate_right())
         self.root.bind('<Up>', lambda e: self.previous_set())
         self.root.bind('<Down>', lambda e: self.next_set())
         self.root.bind('<Return>', lambda e: self.apply_wallpaper())
         self.root.bind('<Escape>', lambda e: self.root.quit())
-        self.root.bind('t', lambda e: self.cycle_transition_effect())
-        self.root.bind('T', lambda e: self.cycle_transition_effect())
-        self.root.bind('s', lambda e: self.cycle_transition_speed())
-        self.root.bind('S', lambda e: self.cycle_transition_speed())
 
     def center_window(self):
-        """Centraliza a janela na tela"""
         try:
-            # Tentar usar método nativo do Tkinter
             self.root.eval('tk::PlaceWindow . center')
         except:
-            # Fallback para cálculo manual
             self.root.update_idletasks()
-            
-            # Obter dimensões da tela
             screen_width = self.root.winfo_screenwidth()
             screen_height = self.root.winfo_screenheight()
-            
-            # Extrair largura e altura da janela
             width, height = map(int, WINDOW_SIZE.split('x'))
-            
-            # Calcular posição central
             x = (screen_width - width) // 2
-            y = (screen_height - height) // 2 - 100  # Um pouco mais acima
-            
-            # Definir geometria
+            y = (screen_height - height) // 2 - 100
             self.root.geometry(f"{width}x{height}+{x}+{y}")
-        
-        # Trazer para frente
         self.root.lift()
         self.root.focus_force()
 
@@ -116,7 +64,7 @@ class MiniSwwwSelector:
                         return folder
             except Exception:
                 pass
-        # fallback comuns
+
         for p in [
             os.path.expanduser('~/Imagens/wallpapers'),
             os.path.expanduser('~/Wallpapers'),
@@ -133,18 +81,18 @@ class MiniSwwwSelector:
         found = []
         for ext in exts:
             found.extend(glob.glob(os.path.join(folder, ext)))
-        # fallback: inclui subpastas imediatas se muito poucos
+
         if len(found) < 6:
             for root_dir, dirs, files in os.walk(folder):
                 for ext in exts:
                     found.extend(glob.glob(os.path.join(root_dir, ext)))
                 if len(found) >= 60:
                     break
+
         found = sorted(list(dict.fromkeys(found)))
-        return found[:90]  # limitar
+        return found[:90]
 
     def setup_ui(self):
-        # frame principal minúsculo
         self.main_frame = tk.Frame(self.root, bg=BG)
         self.main_frame.pack(expand=True, fill='both', padx=6, pady=4)
 
@@ -166,7 +114,6 @@ class MiniSwwwSelector:
             self.image_labels.append(img_label)
             self.name_labels.append(name_label)
 
-        # barra de status compacta
         self.status_label = tk.Label(self.root, text="", font=("Arial", 9), bg=BG, fg="#e6d35c")
         self.status_label.pack(pady=2)
 
@@ -188,27 +135,31 @@ class MiniSwwwSelector:
         if not self.wallpapers:
             self.status_label.config(text="Nenhum wallpaper encontrado")
             return
+
         total = len(self.wallpapers)
         for i in range(3):
             idx = (self.current_set * 3 + i) % total
             path = self.wallpapers[idx]
             photo = self._make_thumb(path)
+
             if photo:
                 self.image_labels[i].configure(image=photo, text="")
                 self.image_labels[i].image = photo
             else:
                 self.image_labels[i].configure(text="Erro", image="")
                 self.image_labels[i].image = None
+
             base = os.path.basename(path)
             self.name_labels[i].configure(text=base)
+
         self.update_status()
 
     def update_selection_highlight(self):
         for i, frame in enumerate(self.image_frames):
             if i == self.selected_index:
-                frame.configure(highlightbackground=ACCENT, highlightcolor=ACCENT)
+                frame.configure(highlightbackground=ACCENT)
             else:
-                frame.configure(highlightbackground="#3a3a3a", highlightcolor="#3a3a3a")
+                frame.configure(highlightbackground="#3a3a3a")
 
     def update_status(self):
         if not self.wallpapers:
@@ -216,11 +167,8 @@ class MiniSwwwSelector:
         total = len(self.wallpapers)
         idx = (self.current_set * 3 + self.selected_index) % total
         base = os.path.basename(self.wallpapers[idx])
-        transition = self.transition_names[self.current_transition]
-        speed = self.transition_speed_names[self.current_speed]
-        self.status_label.configure(text=f"{idx+1}/{total} • {base} • Tela Cheia • {transition} • {speed}")
+        self.status_label.configure(text=f"{idx+1}/{total} • {base} • Tela Cheia")
 
-    # Navegação
     def navigate_left(self):
         if self.selected_index > 0:
             self.selected_index -= 1
@@ -253,80 +201,32 @@ class MiniSwwwSelector:
         self.current_set = (self.current_set - 1) % max_sets
         self.load_wallpapers()
 
-    def cycle_transition_effect(self):
-        self.current_transition = (self.current_transition + 1) % len(self.transition_effects)
-        self.update_status()
-    
-    def cycle_transition_speed(self):
-        self.current_speed = (self.current_speed + 1) % len(self.transition_speeds)
-        self.update_status()
-
     def apply_wallpaper(self):
         if not self.wallpapers:
             return
+
         idx = (self.current_set * 3 + self.selected_index) % len(self.wallpapers)
         path = self.wallpapers[idx]
-        transition_type = self.transition_effects[self.current_transition]
-        duration = self.transition_speeds[self.current_speed]
-        
-        # Comando swww com parâmetros dinâmicos - sempre tela cheia (crop)
-        cmd = [
-            'swww', 'img', path,
-            '--transition-type', transition_type,
-            '--transition-duration', duration,
-            '--resize', 'crop',  # Sempre crop para tela cheia
-            '--filter', 'Lanczos3',
-            '--fill-color', '000000'
-        ]
-        
-        # Adicionar parâmetros especiais para certos efeitos
-        if transition_type in ['wipe', 'wave']:
-            cmd.extend(['--transition-angle', '45'])
-        elif transition_type == 'grow':
-            cmd.extend(['--transition-pos', '0.5,0.5'])
-        
+
         try:
-            subprocess.run(cmd, check=True, capture_output=True, text=True)
-            
-            # Sincronizar cores do sistema após aplicar wallpaper (apenas no Hyprland)
-            try:
-                # Verificar ambiente - não executar no Qtile
-                is_qtile = subprocess.run(['pgrep', '-x', 'qtile'], 
-                                        capture_output=True).returncode == 0
-                is_hyprland = (
-                    os.environ.get('XDG_CURRENT_DESKTOP') == 'Hyprland' or
-                    os.environ.get('HYPRLAND_INSTANCE_SIGNATURE') is not None or
-                    subprocess.run(['pgrep', '-x', 'Hyprland'], 
-                                 capture_output=True).returncode == 0
-                )
-                
-                if is_qtile:
-                    colors_status = ""  # Não sincronizar no Qtile
-                elif is_hyprland:
-                    color_script = os.path.expanduser("~/.config/hypr/scripts/update_colors.sh")
-                    if os.path.exists(color_script) and os.access(color_script, os.X_OK):
-                        subprocess.Popen([color_script], 
-                                       stdout=subprocess.DEVNULL, 
-                                       stderr=subprocess.DEVNULL)
-                        colors_status = " + Cores sincronizadas"
-                    else:
-                        colors_status = ""
-                else:
-                    colors_status = ""  # Ambiente desconhecido
-            except Exception:
-                colors_status = ""
-            
-            transition_name = self.transition_names[self.current_transition]
-            speed_name = self.transition_speed_names[self.current_speed]
+            subprocess.run(['pkill', '-x', 'swaybg'], stderr=subprocess.DEVNULL)
+
+            subprocess.Popen([
+                'swaybg',
+                '-i', path,
+                '-m', 'fill'
+            ])
+
             self.status_label.configure(
-                text=f"OK: {os.path.basename(path)} (Tela Cheia) - {transition_name} ({speed_name}){colors_status}", 
+                text=f"OK: {os.path.basename(path)} (Tela Cheia)",
                 fg="#79e07d"
             )
             self.root.after(2000, lambda: self.status_label.configure(fg="#e6d35c"))
+
         except FileNotFoundError:
-            self.status_label.configure(text="swww não encontrado (instale)", fg="#ff6b6b")
-        except subprocess.CalledProcessError as e:
-            self.status_label.configure(text=f"Erro swww: {e.returncode}", fg="#ff6b6b")
+            self.status_label.configure(text="swaybg não encontrado", fg="#ff6b6b")
+        except Exception as e:
+            self.status_label.configure(text=f"Erro: {e}", fg="#ff6b6b")
 
 
 def main():
