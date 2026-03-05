@@ -1,0 +1,40 @@
+#!/bin/bash
+# Script para integrar KDE Plasma no Hyprland (Fedora)
+# Hipótese: Hyprland já instalado
+
+set -e
+
+echo "### Atualizando o sistema ###"
+sudo dnf update -y
+
+echo "### Instalando KDE Plasma e Wayland (se ainda não estiver) ###"
+
+sudo dnf install -y plasma-workspace-wayland kde-cli-tools kde-settings-plasma 
+
+echo "### Configurando Hyprland para iniciar Plasma Widgets ###"
+mkdir -p ~/.config/hypr
+HYPRCONF=~/.config/hypr/hyprland.conf
+
+if ! grep -q "plasmashell" "$HYPRCONF" 2>/dev/null; then
+cat <<EOL >> $HYPRCONF
+
+# Plasma Widgets e Painel
+exec-once = kglobalaccel5
+exec-once = plasmashell
+exec-once = plasma-discover
+EOL
+fi
+
+echo "### Criando sessão Hyprland + Plasma ###"
+sudo tee /usr/share/wayland-sessions/hyprland-plasma.desktop > /dev/null <<EOL
+[Desktop Entry]
+Name=Hyprland + Plasma
+Comment=Hyprland com KDE Plasma Widgets
+Exec=Hyprland
+Type=Application
+DesktopNames=Hyprland
+X-KDE-SessionModes=default
+EOL
+
+echo "### Configuração concluída! ###"
+echo "Selecione 'Hyprland + Plasma' na tela de login para usar o desktop híbrido."
