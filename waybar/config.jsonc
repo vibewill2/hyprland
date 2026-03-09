@@ -1,90 +1,63 @@
 {
-  "layer": "top",
-  "position": "top",
-  "height": 40,
-  "margin": 6,
-  "spacing": 6,
-  "border-radius": 16,
+    "layer": "top",
+    "position": "top",
+    "height": 38,
+    "margin-top": 8,
+    "margin-left": 12,
+    "margin-right": 12,
+    "spacing": 4,
 
-  "modules-left": ["hyprland/workspaces", "hyprland/window"],
-  "modules-center": ["clock"],
-  "modules-right": [
-    "network",
-    "pulseaudio",
-    "pulseaudio#microphone",
-    "battery",
-    "tray",
-    "custom/power"
-  ],
+    "modules-left": ["hyprland/workspaces", "hyprland/window"],
+    "modules-center": ["clock"],
+    "modules-right": ["network", "cpu", "memory", "pulseaudio", "battery"],
 
-  "hyprland/workspaces": {
-    "disable-scroll": true,
-    "format": "{icon}",
-    "format-icons": {
-      "1": "",
-      "2": "",
-      "3": "",
-      "4": "",
-      "5": "",
-      "default": ""
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "active-only": false,
+        "persistent-workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": [],
+            "5": []
+        },
+        "format": "{icon}",
+        "format-icons": {
+            "1": "󰄯",
+            "2": "󰄯",
+            "3": "󰄯",
+            "4": "󰄯",
+            "5": "󰄯",
+            "active": "󰀚",
+            "default": "󰄯"
+        }
     },
-    "persistent-workspaces": { "*": 5 },
-    "tooltip-format": "Área de trabalho {name}",
-    "class": "module"
-  },
 
-  "hyprland/window": { "format": "{}", "max-length": 40, "class": "module" },
+    "hyprland/window": {
+        "format": "󱂬 {title}",
+        "max-length": 30,
+        "separate-outputs": true
+    },
 
-  "clock": {
-    "format": "󰥔  {0:%H:%M}  󰃭  {0:%d/%m}",
-    "tooltip-format": "{:%A, %d de %B de %Y}",
-    "class": "module"
-  },
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": "󰝟",
+        "format-icons": {
+            "default": ["󰕿", "󰖀", "󰕾"]
+        },
+        "on-click": "pavucontrol"
+    },
 
-  "network": {
-    "format-wifi": "󰤨  {essid}",
-    "format-ethernet": "󰈀  {ifname}",
-    "format-disconnected": "󰤭  sem rede",
-    "tooltip-format": "{ifname} → {ipaddr}",
-    "class": "module"
-  },
-
-  "pulseaudio": {
-    "format": "{icon} {volume}%",
-    "format-muted": "󰖁",
-    "format-icons": { "default": ["󰕿", "󰖀", "󰕾"] },
-    "scroll-step": 5,
-    "on-click": "pavucontrol",
-    "class": "module"
-  },
-
-  "pulseaudio#microphone": {
-    "source": true,
-    "format": "{icon} {volume}%",
-    "format-muted": "󰍭",
-    "format-icons": { "default": ["󰍬"] },
-    "scroll-step": 5,
-    "on-click": "pavucontrol",
-    "class": "module"
-  },
-
-  "battery": {
-    "states": { "warning": 30, "critical": 15 },
-    "format": "{icon} {capacity}%",
-    "format-icons": ["󰁺","󰁼","󰁿","󰂁","󰁹"],
-    "format-charging": "󰂄  {capacity}%",
-    "format-plugged": "󰚥  {capacity}%",
-    "tooltip-format": "{timeTo} restantes",
-    "class": "module"
-  },
-
-  "tray": { "icon-size": 20, "spacing": 6, "class": "module" },
-
-  "custom/power": {
-    "format": "󰐥",
-    "tooltip": "Menu de energia",
-    "on-click": "/home/vibewill/.config/waybar/scripts/power-menu.sh",
-    "interval": 0,
-    "class": "module"
-  }
+    "cpu": { "format": "󰍛 {usage}%" },
+    "memory": { "format": "󰾆 {percentage}%" },
+    "network": { "format-wifi": "󰤨 {essid}", "format-ethernet": "󰈀", "format-disconnected": "󰤮" },
+    "battery": {
+        "format": "{icon} {capacity}%",
+        "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+    },
+    "clock": {
+        "format": "󰥔 {:%H:%M}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    }
 }
