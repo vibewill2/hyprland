@@ -9,7 +9,7 @@
 
     "modules-left": ["hyprland/workspaces", "hyprland/window"],
     "modules-center": ["clock"],
-    "modules-right": ["network", "cpu", "memory", "pulseaudio", "battery"],
+    "modules-right": ["keyboard", "network", "cpu", "memory", "temperature", "disk", "pulseaudio", "backlight", "battery", "tray"],
 
     "hyprland/workspaces": {
         "disable-scroll": true,
@@ -20,7 +20,11 @@
             "2": [],
             "3": [],
             "4": [],
-            "5": []
+            "5": [],
+            "6": [],
+            "7": [],
+            "8": [],
+            "9": []
         },
         "format": "{icon}",
         "format-icons": {
@@ -29,6 +33,10 @@
             "3": "󰄯",
             "4": "󰄯",
             "5": "󰄯",
+            "6": "󰄯",
+            "7": "󰄯",
+            "8": "󰄯",
+            "9": "󰄯",
             "active": "󰀚",
             "default": "󰄯"
         }
@@ -38,6 +46,12 @@
         "format": "󱂬 {title}",
         "max-length": 30,
         "separate-outputs": true
+    },
+
+    "keyboard": {
+        "format": "⌨ {output}",
+        "exec": "swaymsg -t get_inputs | jq -r '.[] | select(.identifier | test(\"keyboard\")) | .xkb_active_layout_name'",
+        "interval": 1
     },
 
     "pulseaudio": {
@@ -51,11 +65,36 @@
 
     "cpu": { "format": "󰍛 {usage}%" },
     "memory": { "format": "󰾆 {percentage}%" },
-    "network": { "format-wifi": "󰤨 {essid}", "format-ethernet": "󰈀", "format-disconnected": "󰤮" },
+
+    "temperature": {
+        "thermal-zone": 0,
+        "format": "󰔏 {temperatureC}°C"
+    },
+
+    "disk": {
+        "interval": 30,
+        "format": "󰋊 {percentage_used}%"
+    },
+
+    "network": {
+        "format-wifi": "󰤨 {essid}",
+        "format-ethernet": "󰈀",
+        "format-disconnected": "󰤮"
+    },
+
+    "backlight": {
+        "format": "󰃠 {percent}%"
+    },
+
     "battery": {
         "format": "{icon} {capacity}%",
         "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
     },
+
+    "tray": {
+        "spacing": 10
+    },
+
     "clock": {
         "format": "󰥔 {:%H:%M}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
