@@ -3,6 +3,7 @@ nwg-look
 swww
 superfile
 fuzzel
+Hyprpanel
 grub-btrfs
 sudo dnf copr enable solopasha/hyprland
 sudo dnf copr enable tywil04/ly
