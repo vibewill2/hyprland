@@ -9,7 +9,6 @@ end)
 ---- MONITORS ----
 ------------------
 
--- See https://wiki.hypr.land/Configuring/Basics/Monitors/
 hl.monitor({
     output   = "HDMI-A-1",
     mode     = "1400x900@60",
@@ -17,6 +16,9 @@ hl.monitor({
     scale    = "1",
 })
 
+-- ========================
+-- CONFIGURAÇÕES
+-- ========================
 hl.config({
     input = {
         kb_layout  = "br",
@@ -26,18 +28,39 @@ hl.config({
         kb_rules   = "",
 
         follow_mouse = 1,
-
-        sensitivity = 0, -- -1.0 - 1.0, 0 means no modification.
+        sensitivity = 0,
 
         touchpad = {
             natural_scroll = false,
         },
     },
+
+    general = {
+        border_size = 2,
+        gaps_in = 5,
+        gaps_out = 10,
+
+        ["col.active_border"] = "rgba(89b4faff)",
+        ["col.inactive_border"] = "rgba(44475aff)",
+    },
+
+    decoration = {
+        rounding = 10,
+
+        active_opacity = 0.95,
+        inactive_opacity = 0.85,
+
+        blur = {
+            enabled = true,
+            size = 6,
+            passes = 2,
+        },
+    },
+
+    animations = {
+        enabled = true,
+    },
 })
-
-
-
-
 
 -- ========================
 -- VARIÁVEIS
@@ -73,7 +96,7 @@ for i = 1, 9 do
 end
 
 -- ========================
--- MOUSE (seguro)
+-- MOUSE
 -- ========================
 hl.bind(mod .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })
 hl.bind(mod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
