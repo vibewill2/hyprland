@@ -4,6 +4,15 @@
 hl.on("hyprland.start", function()
   hl.exec_cmd("noctalia")
 end)
+hl.on("hyprland.start", function()
+  hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=Hyprland")
+  hl.exec_cmd("systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
+  hl.exec_cmd("systemctl --user start graphical-session.target")
+end)
+
+
+
+
 
 ------------------
 ---- MONITORS ----
@@ -38,7 +47,7 @@ hl.config({
     general = {
         border_size = 2,
         gaps_in = 5,
-        gaps_out = 10,
+        gaps_out = 20,
 
         ["col.active_border"] = "rgba(89b4faff)",
         ["col.inactive_border"] = "rgba(44475aff)",
@@ -104,4 +113,7 @@ hl.bind(mod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 -- ========================
 -- NOCTALIA
 -- ========================
+
+
+-- For Noctalia Color templates
 require("noctalia")
